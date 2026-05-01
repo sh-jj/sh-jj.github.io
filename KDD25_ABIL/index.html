@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description"
+          content="">
+    <meta name="keywords" content="Abductive Learning, Imitation Learning, Neuro-Symbolic Learning">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Abductive Learning for Neuro-Symbolic Grounded Imitation</title>
+  
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+          rel="stylesheet">
+  
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="icon" href="./static/images/favicon.svg">
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+    <script type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js">
+    </script>
+  </head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://www.lamda.nju.edu.cn/shaojj">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://www.lamda.nju.edu.cn/shaojj/KDD24_SRA/index.html">
+            SRA
+          </a>
+         <!--  <a class="navbar-item" href="https://nerfies.github.io">
+            Nerfies
+          </a>
+          <a class="navbar-item" href="https://latentfusion.github.io">
+            LatentFusion
+          </a>
+          <a class="navbar-item" href="https://photoshape.github.io">
+            PhotoShape
+          </a> -->
+        </div>
+      </div> 
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Abductive Learning for Neuro-Symbolic Grounded Imitation</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://www.lamda.nju.edu.cn/shaojj">Jie-Jing Shao</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://hoar012.github.io/">Hao-Ran Hao</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.lamda.nju.edu.cn/yangxw/">Xiao-Wen Yang</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://cs.nju.edu.cn/liyf/index.htm">Yu-Feng Li</a><sup>1</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Nanjing University, LAMDA Group</span>
+            <!-- <span class="author-block"><sup>2</sup>Google Research</span> -->
+          </div>
+
+          <div class="column has-text-centered">
+            <span class="author-block"> KDD 2025 </span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2411.18201"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/Hoar012/ABIL-KDD-2025"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href="static/images/KDD24-poster.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Poster</span>
+                  </a>  -->
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=WM0Kp-21gew"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>  -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+		
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <!-- <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/teaser.mp4"
+                type="video/mp4">
+      </video> -->
+      <img src="./static/images/intro.png", width="100%">
+      <h2 class="subtitle has-text-centered">
+        Our framework, ABductive Imitation Learning (ABIL), achieves neuro-symbolic grounding of imitation in complex scenes while showing state-of-the-art results in data efficiency, generalization, and zero-shot transfer.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          Recent learning-to-imitation methods have shown promising results in planning via imitating within the observation-action space. However, their ability in open environments remains constrained, particularly in long-horizon tasks. In contrast, traditional symbolic planning excels in long-horizon tasks through logical reasoning over human-defined symbolic spaces but struggles to handle observations beyond symbolic states, such as high-dimensional visual inputs encountered in real-world scenarios. In this work, we draw inspiration from abductive learning and introduce a novel framework ABductive Imitation Learning (ABIL) that integrates the benefits of data-driven learning and symbolic-based reasoning, enabling long-horizon planning. Specifically, we employ abductive reasoning to understand the demonstrations in symbolic space and design the principles of sequential consistency to resolve the conflicts between perception and reasoning. ABIL generates predicate candidates to facilitate the perception from raw observations to symbolic space without laborious predicate annotations, providing a groundwork for symbolic planning. With the symbolic understanding, we further develop a policy ensemble whose base policies are built with different logical objectives and managed through symbolic reasoning. Experiments show that our proposal successfully understands the observations with the task-relevant symbolics to assist the imitation learning. Importantly, ABIL demonstrates significantly improved data efficiency and generalization across various long-horizon tasks, highlighting it as a promising solution for long-horizon planning. 
+		 
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+	<pre><code>@misc{shao2024learninglonghorizonplanningneurosymbolic,
+      title={Learning for Long-Horizon Planning via Neuro-Symbolic Abductive Imitation}, 
+      author={Jie-Jing Shao and Hao-Ran Hao and Xiao-Wen Yang and Yu-Feng Li},
+      year={2024},
+      eprint={2411.18201},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2411.18201}, 
+}
+}</code></pre>
+<!-- 
+    <pre><code>@article{shao2025abil,
+  author       = {Jie{-}Jing Shao and Hao{-}Ran Hao and Xiao{-}Wen Yang and Yu{-}Feng Li}, 
+  title     = {Abductive Learning for Neuro-Symbolic Grounded Imitation},
+  booktitle    = {Proceedings of the 31st {ACM} {SIGKDD} Conference on Knowledge Discovery and Data Mining},
+  year      = {2025},
+}</code></pre>
+
+ -->
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="content has-text-justified">
+        <p>
+         We acknowledge <a
+            href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> for the website template.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
