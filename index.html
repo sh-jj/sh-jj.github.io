@@ -14,9 +14,10 @@
         <div class="nav-links">
           <a href="#research">Research</a>
           <a href="#publications">Publications</a>
-          <a href="#projects">Projects</a>
-          <a href="#awards">Awards</a>
-          <a href="#service">Service</a>
+          <a href="#projects">Featured Projects</a>
+          <a href="#awards">Awards &amp; Honors</a>
+          <a href="#presentations">Presentations</a>
+          <a href="#service">Academic Service</a>
         </div>
       </nav>
     </header>
@@ -35,11 +36,12 @@
             <a href="http://cs.nju.edu.cn/zhouzh/">Prof. Zhi-Hua Zhou</a>.
           </p>
           <p>
-            Since August 2025, I have been a visiting student at CFAR, A*STAR, supervised by
+            Since August 2025, I have been a visiting student at
+            <a href="https://www.a-star.edu.sg/cfar">A*STAR CFAR</a>, supervised by
             <a href="https://scholar.google.com/citations?user=xy6_gBUAAAAJ">Haiyan Yin</a>,
-            <a href="https://scholar.google.com/citations?user=a1UeOvUAAAAJ">Xingrui Yu</a>, and
-            <a href="https://scholar.google.com/citations?user=rJMOlVsAAAAJ">Ivor Tsang</a>, while working closely with
-            <a href="https://scholar.google.com/citations?user=uQXB6-oAAAAJ">Yueming Lyu</a>.
+            <a href="https://scholar.google.com/citations?user=a1UeOvUAAAAJ">Xingrui Yu</a>,
+            <a href="https://scholar.google.com/citations?user=uQXB6-oAAAAJ">Yueming Lyu</a>, and
+            <a href="https://scholar.google.com/citations?user=rJMOlVsAAAAJ">Ivor Tsang</a>.
           </p>
           <div class="link-row" aria-label="Profile links">
             <a class="pill" href="mailto:shaojj@lamda.nju.edu.cn">Email</a>
@@ -55,162 +57,661 @@
       <section id="news">
         <h2>News</h2>
         <ul class="news-list">
-          <li><span class="year">2026</span> ChinaTravel is accepted to ICLR 2026.</li>
-          <li><span class="year">2025</span> Neuro-Symbolic AI survey is highlighted in a Nature News Feature.</li>
-          <li><span class="year">2025</span> Re^2 Agent receives the Most Innovative Approach Award at the NeurIPS 2025 Embodied Agents Challenge.</li>
-          <li><span class="year">2025</span> ABIL is accepted to KDD 2025.</li>
+          <li><em>2026.05</em>: 4 papers are accepted by ICML 2026!</li>
+          <li><em>2026.04</em>: Our proposal for the Second Travel Planning Challenge is accepted by IJCAI 2026!</li>
+          <li><em>2026.01</em>: <a href="#pub-chinatravel">ChinaTravel</a> is accepted by ICLR 2026!</li>
+          <li><em>2025.11</em>: Our <a href="#pub-ijcai-survey">Neuro-Symbolic AI survey</a> is highlighted by Nature News!</li>
+          <li><em>2025.10</em>: We win the Most Innovative Approach Award at NeurIPS 2025 Embodied Agents Challenge!</li>
+          <li><em>2024.12</em>: <a href="#pub-abil">ABIL</a> is accepted by KDD 2025!</li>
         </ul>
       </section>
 
       <section id="research">
         <h2>Research</h2>
         <p class="lead">
-          My long-term goal is to build practical and robust machine learning systems in the real world. My current work focuses on large language model agents and neuro-symbolic learning, especially generalization, reasoning, data efficiency, and trustworthy constraint satisfaction.
+          Our long-term goal is to <strong>build general and robust AI agents</strong> that contribute to the advancement of artificial general intelligence (AGI), enhance social productivity, and improve people's well-being.
+          Our core approach centers on <strong>neuro-symbolic learning</strong>, which bridges data-driven learning with symbolic-driven search and reasoning, often regarded as the hallmark of third-generation AI. The neural component provides grounding in perception and physical interaction, while the symbolic component augments reasoning and planning.
         </p>
-        <div class="research-grid">
-          <div class="research-item">
-            <h3>LLM Agents</h3>
-            <p>Open-ended planning, embodied decision making, self-evaluation, and reliable tool use in realistic environments.</p>
-          </div>
-          <div class="research-item">
-            <h3>Neuro-Symbolic Learning</h3>
-            <p>Abductive learning, reasoning shortcuts, verification learning, and grounded imitation under weak supervision.</p>
-          </div>
-          <div class="research-item">
-            <h3>Robust Learning</h3>
-            <p>Open-set learning, distribution shift, model reuse, and label-efficient adaptation in open environments.</p>
-          </div>
-        </div>
+        <p class="lead">
+          Recently, my research has primarily focused on addressing the limitations of <strong>Large Language Model Agents</strong>, particularly in generalization and data efficiency.
+        </p>
       </section>
 
       <section id="publications">
-        <h2>Selected Publications</h2>
-        <div class="pub-toolbar" role="tablist" aria-label="Publication filters">
-          <button class="active" type="button" data-filter="selected">Selected</button>
-          <button type="button" data-filter="lead">First-authored</button>
-          <button type="button" data-filter="all">All</button>
+        <h2>Publications</h2>
+        <div class="pub-toolbar" role="tablist" aria-label="Publication views">
+          <button class="active" type="button" data-pub-view="selected" data-template="template-selected">Selected</button>
+          <button type="button" data-pub-view="lead" data-template="template-lead">First-authored</button>
+          <button type="button" data-pub-view="date" data-template="template-date">All by date</button>
+          <button type="button" data-pub-view="topic" data-template="template-topic">All by topic</button>
         </div>
 
-        <div class="pub-list">
-          <article class="publication" data-kind="selected lead all">
-            <img src="img/paper/iclr26_chinatravel.png" alt="ChinaTravel paper thumbnail">
-            <div>
-              <h3>ChinaTravel: An Open-Ended Travel Planning Benchmark with Compositional Constraint Validation for Language Agents.</h3>
-              <p class="authors"><strong>Jie-Jing Shao*</strong>, Bo-Wen Zhang*, Xiao-Wen Yang*, Bai-Zhi Chen, Si-Yu Han, Jing-Hao Pang, Wen-Da Wei, Guohao Cai, Zhenhua Dong, Lan-Zhe Guo, Yu-Feng Li.</p>
-              <div class="pub-links"><span class="venue">ICLR 2026</span><a href="https://openreview.net/forum?id=0YRVlxY9BH">Paper</a><a href="ChinaTravel/index.html">Project</a><a href="https://github.com/LAMDASZ-ML/ChinaTravel">Code</a><a href="https://huggingface.co/spaces/LAMDA-NeSy/ChinaTravel">Leaderboard</a></div>
-              <p class="note">Foundation for the IJCAI 2025 and AIC 2025 Travel Planning Challenges.</p>
-            </div>
-          </article>
+        <div id="pubs-viewport">
+            <!-- JavaScript will inject content here -->
+        </div>
 
-          <article class="publication" data-kind="selected lead all">
-            <img src="img/paper/ijcai25_nesy_survey.png" alt="Neuro-symbolic AI survey thumbnail">
-            <div>
-              <h3>Neuro-Symbolic Artificial Intelligence: Towards Improving the Reasoning Abilities of Large Language Models.</h3>
-              <p class="authors">Xiao-Wen Yang*, <strong>Jie-Jing Shao*</strong>, Lan-Zhe Guo*, Bo-Wen Zhang, Zhi Zhou, Lin-Han Jia, Wang-Zhou Dai, Yu-Feng Li.</p>
-              <div class="pub-links"><span class="venue">IJCAI 2025 Survey Track</span><a href="https://www.ijcai.org/proceedings/2025/1195.pdf">Paper</a><a href="https://github.com/LAMDASZ-ML/Awesome-LLM-Reasoning-with-NeSy">Project</a></div>
-              <p class="note">Highlighted by Nature News as a representative paper in neuro-symbolic research.</p>
-            </div>
-          </article>
+        <div style="display:none;">
+            <!-- 1. Selected Works -->
+            <template id="template-selected">
+                <p>(* denotes equal contributions)</p>
+                <ul>
+                    <li id="pub-chinatravel" class="pub-item-with-img">
+                        <img class="pub-thumbnail" src="img/paper/iclr26_chinatravel.png" alt="ChinaTravel">
+                        <div class="pub-content">
+                            <b>ChinaTravel: An Open-Ended Travel Planning Benchmark with Compositional Constraint
+                                Validation for Language Agents.</b><br>
+                            <b>Jie-Jing Shao*</b>, Bo-Wen Zhang*, Xiao-Wen Yang*, Bai-Zhi Chen, Si-Yu Han, Jing-Hao
+                            Pang, Wen-Da Wei, Guohao Cai, Zhenhua Dong, Lan-Zhe Guo, Yu-Feng Li.<br>
+                            <div class="pub-links">
+                                <b>ICLR 2026</b>
+                                <a href="https://openreview.net/forum?id=0YRVlxY9BH">Paper</a>
+                                <a href="ChinaTravel/index.html">Project Page</a>
+                                <a href="https://github.com/LAMDASZ-ML/ChinaTravel">Code</a>
+                                <a href="https://huggingface.co/datasets/LAMDA-NeSy/ChinaTravel">Dataset</a>
+                                <a href="https://huggingface.co/spaces/LAMDA-NeSy/ChinaTravel">Leaderboard</a>
+                            </div>
+                            Based on this benchmark, we organize the <b> <a
+                                    href="https://chinatravel-competition.github.io/IJCAI2025/">The IJCAI-25 Travel
+                                    Planning Challenge</a>
+                            </b>
+                            and the <b><a href="https://www.aicomp.cn/tracks/1428.html">AIC 2025 Travel Planning
+                                    Challenge</a></b>.<br>
+                            The developed demo was honored with the <b>Excellence Award</b> at the National "AI+"
+                            Industry Application Innovation Competition.
+                        </div>
+                    </li>
 
-          <article class="publication" data-kind="lead all">
-            <img src="img/paper/kdd25_abil.png" alt="ABIL paper thumbnail">
-            <div>
-              <h3>Abductive Learning for Neuro-Symbolic Grounded Imitation.</h3>
-              <p class="authors"><strong>Jie-Jing Shao*</strong>, Hao-Ran Hao*, Xiao-Wen Yang, Yu-Feng Li.</p>
-              <div class="pub-links"><span class="venue">KDD 2025</span><a href="https://arxiv.org/abs/2411.18201">Paper</a><a href="KDD25_ABIL/index.html">Project</a><a href="https://github.com/Hoar012/ABIL-KDD-2025">Code</a><a href="slides/ABIL_PAKDDW_Slides_v3.pdf">Slides</a></div>
-              <p class="note">Best Paper Award at PAKDD 2024 Workshop on Robust Machine Learning in Open Environments.</p>
-            </div>
-          </article>
+                    <li id="pub-abil" class="pub-item-with-img">
+                        <img class="pub-thumbnail" src="img/paper/ijcai25_nesy_survey.png"
+                            alt="Neuro-Symbolic AI Survey">
+                        <div class="pub-content">
+                            <b>Neuro-Symbolic Artificial Intelligence: Towards Improving the Reasoning Abilities of
+                                Large Language Models.</b><br>
+                            Xiao-Wen Yang*, <b>Jie-Jing Shao*</b>, Lan-Zhe Guo*, Bo-Wen Zhang, Zhi Zhou, Lin-Han Jia,
+                            Wang-Zhou Dai, Yu-Feng Li.<br>
+                            <div class="pub-links">
+                                <b>IJCAI 2025 Survey Track</b>
+                                <a href="https://www.ijcai.org/proceedings/2025/1195.pdf">Paper</a>
+                                <a href="https://github.com/LAMDASZ-ML/Awesome-LLM-Reasoning-with-NeSy">Project Page</a>
+                            </div>
+                            Highlighted in a <b>Nature News Feature</b> article as one of ten representative papers in
+                            neuro-symbolic research [<a
+                                href="https://www.nature.com/articles/d41586-025-03856-1">Link</a>].
+                        </div>
+                    </li>
 
-          <article class="publication" data-kind="all">
-            <img src="img/paper/icml25_verification.png" alt="Verification Learning thumbnail">
-            <div>
-              <h3>Verification Learning: Make Unsupervised Neuro-Symbolic System Feasible.</h3>
-              <p class="authors">Lin-Han Jia, Wen-Chao Hu, <strong>Jie-Jing Shao</strong>, Lan-Zhe Guo, Yu-Feng Li.</p>
-              <div class="pub-links"><span class="venue">ICML 2025</span><a href="https://arxiv.org/abs/2503.12917">Paper</a></div>
-            </div>
-          </article>
+                    <li id="pub-ijcai-survey" class="pub-item-with-img">
+                        <img class="pub-thumbnail" src="img/paper/kdd25_abil.png" alt="ABIL">
+                        <div class="pub-content">
+                            <b>Abductive Learning for Neuro-Symbolic Grounded Imitation.</b><br>
+                            <b>Jie-Jing Shao*</b>, Hao-Ran Hao*, Xiao-Wen Yang, Yu-Feng Li.<br>
+                            <div class="pub-links">
+                                <b>KDD 2025</b>
+                                <a href="https://arxiv.org/abs/2411.18201">Paper</a>
+                                <a href="KDD25_ABIL/index.html">Project Page</a>
+                                <a href="https://github.com/Hoar012/ABIL-KDD-2025">Code</a>
+                            </div>
+                            PAKDD 2024 Workshop on Robust Machine Learning in Open Environments, <b>Best Paper Award</b>
+                            (<a href="slides/ABIL_PAKDDW_Slides_v3.pdf">Slides</a>)
+                        </div>
+                    </li>
+                    <!--
+                    <li class="pub-item-with-img">
+                        <img class="pub-thumbnail" src="img/paper/icml25_verification.png" alt="Verification Learning">
+                        <div class="pub-content">
+                            <b>Verification Learning: Make Unsupervised Neuro-Symbolic System Feasible.</b><br>
+                            Lin-Han Jia, Wen-Chao Hu, <b>Jie-Jing Shao</b>, Lan-Zhe Guo, Yu-Feng Li.<br>
+                            <div class="pub-links">
+                                <b>ICML 2025</b>
+                                <a href="https://arxiv.org/abs/2503.12917"> Paper </a>
+                            </div>
+                        </div>
+                    </li> -->
+                    <!--
+                    <li class="pub-item-with-img">
+                        <img class="pub-thumbnail" src="img/paper/kdd24_sra.png" alt="SRA">
+                        <div class="pub-content">
+                            <b>Offline Imitation Learning with Model-based Reverse Augmentation.</b><br>
+                            <b>Jie-Jing Shao*</b>, Hao-Sen Shi*, Lan-Zhe Guo, Yu-Feng Li.<br>
+                            <div class="pub-links">
+                                <b>KDD 2024</b>
+                                <a href="https://arxiv.org/abs/2406.12550">Paper</a>
+                                <a href="KDD24_SRA/index.html">Project Page</a>
+                                <a href="https://github.com/sh-jj/SRA-KDD-2024">Code</a>
+                                <a href="slides/SRA-KDD-0827.pdf">Slides</a>
+                            </div>
+                        </div>
+                    </li>
 
-          <article class="publication" data-kind="lead all">
-            <img src="img/paper/kdd24_sra.png" alt="SRA paper thumbnail">
-            <div>
-              <h3>Offline Imitation Learning with Model-based Reverse Augmentation.</h3>
-              <p class="authors"><strong>Jie-Jing Shao*</strong>, Hao-Sen Shi*, Lan-Zhe Guo, Yu-Feng Li.</p>
-              <div class="pub-links"><span class="venue">KDD 2024</span><a href="https://arxiv.org/abs/2406.12550">Paper</a><a href="KDD24_SRA/index.html">Project</a><a href="https://github.com/sh-jj/SRA-KDD-2024">Code</a><a href="slides/SRA-KDD-0827.pdf">Slides</a></div>
-            </div>
-          </article>
+                    <li class="pub-item-with-img">
+                        <img class="pub-thumbnail" src="img/paper/icml24_shortcut.png" alt="Shortcut Theory">
+                        <div class="pub-content">
+                            <b>Analysis for Abductive Learning and Neural-Symbolic Reasoning Shortcuts.</b><br>
+                            Xiao-Wen Yang, Wen-Da Wei, <b>Jie-Jing Shao</b>, Yu-Feng Li, Zhi-Hua Zhou.<br>
+                            <div class="pub-links">
+                                <b>ICML 2024</b>
+                                <a href="https://openreview.net/pdf?id=AQYabSOfci">Paper</a>
+                                <a href="https://www.lamda.nju.edu.cn/yangxw/shortcuttheory/index.html"> Project Page
+                                </a>
+                            </div>
+                        </div>
+                    </li>
 
-          <article class="publication" data-kind="all">
-            <img src="img/paper/icml24_shortcut.png" alt="Shortcut theory thumbnail">
-            <div>
-              <h3>Analysis for Abductive Learning and Neural-Symbolic Reasoning Shortcuts.</h3>
-              <p class="authors">Xiao-Wen Yang, Wen-Da Wei, <strong>Jie-Jing Shao</strong>, Yu-Feng Li, Zhi-Hua Zhou.</p>
-              <div class="pub-links"><span class="venue">ICML 2024</span><a href="https://openreview.net/pdf?id=AQYabSOfci">Paper</a><a href="https://www.lamda.nju.edu.cn/yangxw/shortcuttheory/index.html">Project</a></div>
-            </div>
-          </article>
+                    <li class="pub-item-with-img">
+                        <img class="pub-thumbnail" src="img/paper/ml24_openset.png" alt="OpenSet">
+                        <div class="pub-content">
+                            <b>Open-Set Learning under Covariate Shift.</b><br>
+                            <b>Jie-Jing Shao*</b>, Xiao-Wen Yang*, Lan-Zhe Guo.<br>
+                            <div class="pub-links">
+                                <b>Machine Learning 2024</b>
+                                <a href="https://link.springer.com/article/10.1007/s10994-022-06237-1">Paper</a>
+                            </div>
+                        </div>
+                    </li>
 
-          <article class="publication" data-kind="lead all">
-            <img src="img/paper/neurips22_log.png" alt="LOG paper thumbnail">
-            <div>
-              <h3>LOG: Active Model Adaptation for Label-Efficient OOD Generalization.</h3>
-              <p class="authors"><strong>Jie-Jing Shao</strong>, Lan-Zhe Guo, Xiao-Wen Yang, Yu-Feng Li.</p>
-              <div class="pub-links"><span class="venue">NeurIPS 2022</span><a href="https://openreview.net/pdf?id=VdQWVdT_8v">Paper</a></div>
-            </div>
-          </article>
+                    <li class="pub-item-with-img">
+                        <img class="pub-thumbnail" src="img/paper/neurips22_log.png" alt="LOG">
+                        <div class="pub-content">
+                            <b>LOG: Active Model Adaptation for Label-Efficient OOD Generalization.</b><br>
+                            <b>Jie-Jing Shao</b>, Lan-Zhe Guo, Xiao-Wen Yang, Yu-Feng Li.<br>
+                            <div class="pub-links">
+                                <b>NeurIPS 2022</b>
+                                <a href="https://openreview.net/pdf?id=VdQWVdT_8v">Paper</a>
+                            </div>
+                        </div>
+                    </li> -->
 
-          <article class="publication" data-kind="lead all">
-            <img src="img/paper/kdd22_auto.png" alt="Active model adaptation thumbnail">
-            <div>
-              <h3>Active Model Adaptation Under Unknown Shift.</h3>
-              <p class="authors"><strong>Jie-Jing Shao</strong>, Yunlu Xu, Zhanzhan Cheng, Yu-Feng Li.</p>
-              <div class="pub-links"><span class="venue">KDD 2022</span><a href="https://cs.nju.edu.cn/liyf/paper/kdd22-auto.pdf">Paper</a></div>
-            </div>
-          </article>
+                    <!-- <li class="pub-item-with-img">
+                        <img class="pub-thumbnail" src="img/paper/kdd22_auto.png" alt="Active Adaptation">
+                        <div class="pub-content">
+                            <b>Active Model Adaptation Under Unknown Shift.</b><br>
+                            <b>Jie-Jing Shao</b>, Yunlu Xu, Zhanzhan Cheng, Yu-Feng Li.<br>
+                            <div class="pub-links">
+                                <b>KDD 2022</b>
+                                <a href="https://cs.nju.edu.cn/liyf/paper/kdd22-auto.pdf">Paper</a>
+                            </div>
+                            This work has been deployed in Hikvision's Intelligent Transportation Systems.
+                        </div>
+                    </li> -->
+                    <li class="pub-item-with-img">
+                        <img class="pub-thumbnail" src="img/paper/re2_agent.png" alt="Re2 Agent">
+                        <div class="pub-content">
+                            <b>Re^2 Agent: Reflection and Re-execution Agent for Embodied Decision Making.</b><br>
+                            Yang Chen, Hong-Jie You, <b>Jie-Jing Shao</b>, Xiao-Wen Yang, Ming Yang, Yu-Feng Li, Lan-Zhe
+                            Guo.<br>
+                            <div class="pub-links">
+                                <b>Preprint</b>
+                                <a href="https://openreview.net/pdf?id=nHhOvYrPMf">Paper</a>
+                            </div>
+                            <a href="https://foundation-models-meet-embodied-agents.github.io/eai_challenge/"> NeurIPS
+                                2025 Challenge on Foundation Models for Embodied Agents</a>, <b> Most Innovative
+                                Approach
+                                Award</b>
+                        </div>
+                    </li>
+                    <li class="pub-item-with-img">
+                        <img class="pub-thumbnail" src="img/paper/revisit_travel.png" alt="Constraint Satisfaction">
+                        <div class="pub-content">
+                            <b>Mind the Gap to Trustworthy LLM Agents: A Systematic Evaluation on Constraint
+                                Satisfaction for Real-World Travel Planning.</b><br>
+                            Bo-Wen Zhang*, Jin Ye*, <b>Jie-Jing Shao*</b>, Yu-Feng Li, Lan-Zhe Guo.<br>
+                            <div class="pub-links">
+                                <b>Preprint</b>
+                                <a href="https://openreview.net/pdf?id=SXKIaWTe4N">Paper</a>
+                            </div>
+                            AAAI 2026 Workshop on Trust and Control in Agentic AI, <b>Best Student Paper Award</b>
+                        </div>
+                    </li>
+                </ul>
+            </template>
+
+            <!-- 2. Lead works -->
+            <template id="template-lead">
+                <p>(* denotes equal contributions)</p>
+                <ul>
+                    <li><b> ChinaTravel: An Open-Ended Travel Planning Benchmark with Compositional Constraint
+                            Validation for Language Agents.</b><br>
+                        <b>Jie-Jing Shao*</b>, Bo-Wen Zhang*, Xiao-Wen Yang*, Bai-Zhi Chen, Si-Yu Han, Jing-Hao Pang,
+                        Wen-Da Wei, Guohao Cai, Zhenhua Dong, Lan-Zhe Guo, Yu-Feng Li.<br>
+                        <div class="pub-links">
+                            <b>ICLR 2026</b>
+                            <a href="https://openreview.net/forum?id=0YRVlxY9BH">Paper</a>
+                            <a href="ChinaTravel/index.html">Project Page</a>
+                            <a href="https://github.com/LAMDASZ-ML/ChinaTravel">Code</a>
+                            <a href="https://huggingface.co/datasets/LAMDA-NeSy/ChinaTravel">Dataset</a>
+                        </div>
+                        Based on this benchmark, we organize a competition on IJCAI 2025: <a
+                            href="https://chinatravel-competition.github.io/IJCAI2025/">The IJCAI-25 Travel Planning
+                            Challenge </a>.<br>
+                        We also organize a competition with <a href="https://www.jsai.org.cn">JSAI</a> on AIC (<a
+                            href="https://www.aicomp.cn">Global Campus Artificial Intelligence Algorithm Elite
+                            Competition</a>): <a
+                            href="https://reg.aicomp.cn/special/phb/detail?id=4729896503479504975&rwId=4713881620858409058&stbh=4715066941826535457">
+                            The AIC 2025 Travel Planning Challenge </a>.
+                    </li>
+                    <li><b>Neuro-Symbolic Artificial Intelligence: Towards Improving the Reasoning Abilities of Large
+                            Language Models.</b><br>
+                        Xiao-Wen Yang*, <b>Jie-Jing Shao*</b>, Lan-Zhe Guo*, Bo-Wen Zhang, Zhi Zhou, Lin-Han Jia,
+                        Wang-Zhou Dai, Yu-Feng Li.<br>
+                        <div class="pub-links">
+                            <b>IJCAI 2025 Survey Track</b>
+                            <a href="https://www.ijcai.org/proceedings/2025/1195.pdf">Paper</a>
+                            <a href="https://github.com/LAMDASZ-ML/Awesome-LLM-Reasoning-with-NeSy">Github Repo</a>
+                        </div>
+                    </li>
+                    <li>
+                        <b>Breaking the Self-Evaluation Barrier: Reinforced Neuro-Symbolic Planning with Large Language
+                            Models.</b><br>
+                        <b>Jie-Jing Shao*</b>, Hong-Jie You*, Guohao Cai, Quanyu Dai, Zhenhua Dong, Lan-Zhe Guo.<br>
+                        <div class="pub-links">
+                            <b>IJCAI 2025</b>
+                            <a href="https://www.ijcai.org/proceedings/2025/0682.pdf">Paper</a>
+                        </div>
+                    </li>
+                    <li>
+                        <b>Abductive Learning for Neuro-Symbolic Grounded Imitation.</b><br>
+                        <b>Jie-Jing Shao*</b>, Hao-Ran Hao*, Xiao-Wen Yang, Yu-Feng Li.<br>
+                        <div class="pub-links">
+                            <b>KDD 2025</b>
+                            <a href="https://arxiv.org/abs/2411.18201">Paper</a>
+                            <a href="KDD25_ABIL/index.html">Webpage</a>
+                            <a href="https://github.com/Hoar012/ABIL-KDD-2025">Code</a>
+                        </div>
+                        PAKDD 2024 Workshop on Robust Machine Learning in Open Environments, <b>Best Paper Award</b> (<a
+                            href="slides/ABIL_PAKDDW_Slides_v3.pdf">Slides</a>)
+                    </li>
+
+                    <li>
+                        <b>Offline Imitation Learning with Model-based Reverse Augmentation.</b><br>
+                        <b>Jie-Jing Shao*</b>, Hao-Sen Shi*, Lan-Zhe Guo, Yu-Feng Li.<br>
+                        <div class="pub-links">
+                            <b>KDD 2024</b>
+                            <a href="https://arxiv.org/abs/2406.12550">Paper</a>
+                            <a href="KDD24_SRA/index.html">Webpage</a>
+                            <a href="https://github.com/sh-jj/SRA-KDD-2024">Code</a>
+                            <a href="slides/SRA-KDD-0827.pdf">Slides</a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <b>Open-Set Learning under Covariate Shift.</b><br>
+                        <b>Jie-Jing Shao*</b>, Xiao-Wen Yang*, Lan-Zhe Guo.<br>
+                        <div class="pub-links">
+                            <b>Machine Learning</b>
+                            <a href="https://link.springer.com/article/10.1007/s10994-022-06237-1">Paper</a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <b>Offline Imitation Learning without Auxiliary High-quality Behavior Data.</b><br>
+                        <b>Jie-Jing Shao</b>, Hao-Sen Shi, Tian Xu, Lan-Zhe Guo, Yang Yu, Yu-Feng Li.<br>
+                        <div class="pub-links">
+                            Preprint 2023
+                            <a href="https://openreview.net/pdf?id=7fxzVTSgZC">Paper</a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <b>Investigating the Limitation of CLIP Models: The Worst-performing Categories.</b><br>
+                        <b>Jie-Jing Shao*</b>, Jiang-Xin Shi*, Xiao-Wen Yang*, Lan-Zhe Guo, Yu-Feng Li.<br>
+                        <div class="pub-links">
+                            Preprint 2023
+                            <a href="https://arxiv.org/pdf/2310.03324">Paper</a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <b>LOG: Active Model Adaptation for Label-Efficient OOD Generalization.</b><br>
+                        <b>Jie-Jing Shao</b>, Lan-Zhe Guo, Xiao-Wen Yang, Yu-Feng Li.<br>
+                        <div class="pub-links">
+                            <b>NeurIPS 2022</b>
+                            <a href="https://openreview.net/pdf?id=VdQWVdT_8v">Paper</a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <b>Active Model Adaptation Under Unknown Shift.</b><br>
+                        <b>Jie-Jing Shao</b>, Yunlu Xu, Zhanzhan Cheng, Yu-Feng Li.<br>
+                        <div class="pub-links">
+                            <b>KDD 2022</b>
+                            <a href="https://cs.nju.edu.cn/liyf/paper/kdd22-auto.pdf">Paper</a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <b>Towards Robust Model Reuse in the Presence of Latent Domains.</b><br>
+                        <b>Jie-Jing Shao</b>, Zhanzhan Cheng, Yu-Feng Li, Shiliang Pu.<br>
+                        <div class="pub-links">
+                            <b>IJCAI 2021</b>
+                            <a href="https://www.ijcai.org/proceedings/2021/0407.pdf">Paper</a>
+                        </div>
+                    </li>
+                </ul>
+            </template>
+
+            <!-- 3. By Date -->
+            <template id="template-date">
+                <div class="pub-year">2026</div>
+                <ul>
+                    <li><b>Jie-Jing Shao*</b>, Bo-Wen Zhang*, Xiao-Wen Yang*, Bai-Zhi Chen, Si-Yu Han, Jing-Hao Pang,
+                        Wen-Da Wei, Guohao Cai, Zhenhua Dong, Lan-Zhe Guo, Yu-Feng Li. <a
+                            href="https://openreview.net/forum?id=0YRVlxY9BH">ChinaTravel: An Open-Ended Travel
+                            Planning Benchmark with Compositional Constraint Validation for Language Agents</a>. In:
+                        Proceedings
+                        of The 14th International Conference on Learning Representations (<b>ICLR'26</b>). <br>
+                        The preliminary version is accepted on the LLM Evals Workshop @ NeurIPS 2025. (<a
+                            href="ChinaTravel/index.html">Webpage</a>, <a
+                            href="https://github.com/LAMDASZ-ML/ChinaTravel">Code</a>)</li>
+                    <li>Xiao-Wen Yang, Xuan-Yi Zhu, Wen-Da Wei, Ding-Chu Zhang, <b>Jie-Jing Shao</b>, Zhi Zhou, Lan-Zhe
+                        Guo, Yu-Feng Li. <a href="https://arxiv.org/abs/2502.04404">Step Back to Leap Forward:
+                            Self-Backtracking for Boosting Reasoning of Language
+                            Models</a>. In: Proceedings of the 40th AAAI conference on Artificial Intelligence
+                        (<b>AAAI'26</b>).
+                    </li>
+                </ul>
+
+                <div class="pub-year">2025</div>
+                <ul>
+                    <li><b>Jie-Jing Shao*</b>, Hao-Ran Hao*, Xiao-Wen Yang, Yu-Feng Li. <a
+                            href="https://arxiv.org/abs/2411.18201">Abductive Learning for
+                            Neuro-Symbolic Grounded Imitation</a>. In: Proceedings of the 31st ACM SIGKDD Conference on
+                        Knowledge Discovery and Data Mining (<b>KDD'25</b>). (<a
+                            href="KDD25_ABIL/index.html">Webpage</a>, <a
+                            href="https://github.com/Hoar012/ABIL-KDD-2025">Code</a>, <a
+                            href="slides/ABIL_PAKDDW_Slides_v3.pdf">Slides</a>). <br>
+                        Presented at PAKDD 2024 Workshop on Robust Machine Learning in Open Environments, <b>Best Paper
+                            Award</b> (<a href="slides/ABIL_PAKDDW_Slides_v3.pdf">Slides</a>)</li>
+                    <li><b>Jie-Jing Shao*</b>, Hong-Jie You*, Guohao Cai, Quanyu Dai, Zhenhua Dong, Lan-Zhe Guo.
+                        <a href="https://www.ijcai.org/proceedings/2025/0682.pdf">Breaking the Self-Evaluation Barrier:
+                            Reinforced Neuro-Symbolic Planning with Large Language
+                            Models</a>. In: Proceedings of the 34th International Joint Conference on Artificial
+                        Intelligence
+                        (<b>IJCAI'25</b>).
+                    </li>
+                    <li>Xiao-Wen Yang*, <b>Jie-Jing Shao*</b>, Lan-Zhe Guo*, Bo-Wen Zhang, Zhi Zhou, Lin-Han Jia,
+                        Wang-Zhou Dai, Yu-Feng Li. <a
+                            href="https://www.ijcai.org/proceedings/2025/1195.pdf">Neuro-Symbolic Artificial
+                            Intelligence: Towards Improving the
+                            Reasoning Abilities of Large Language Models</a>. In: Proceedings of the 34th International
+                        Joint
+                        Conference on Artificial Intelligence (<b>IJCAI'25 Survey Track</b>).</li>
+                    <li>Lin-Han Jia, Wen-Chao Hu, <b>Jie-Jing Shao</b>, Lan-Zhe Guo, Yu-Feng Li. <a
+                            href="https://arxiv.org/abs/2503.12917">Verification Learning:
+                            Make Unsupervised Neuro-Symbolic System Feasible</a>. In: Proceedings of the 42nd
+                        International
+                        Conference on Machine Learning (<b>ICML'25</b>).</li>
+                    <li>Wen-Da Wei, Xiao-Wen Yang, <b>Jie-Jing Shao</b>, Lan-Zhe Guo. <a
+                            href="https://www.ijcai.org/proceedings/2025/0727.pdf">Curriculum Abductive Learning for
+                            Mitigating Reasoning Shortcuts</a>. In: Proceedings of the 34th International Joint
+                        Conference on
+                        Artificial Intelligence (<b>IJCAI'25</b>).</li>
+                    <li>Lan-Zhe Guo, Lin-Han Jia, <b>Jie-Jing Shao</b>, Yu-Feng Li. <a
+                            href="https://arxiv.org/abs/2412.18256">Robust Semi-Supervised Learning in
+                            Open Environments</a>. <b>Frontiers of Computer Science</b>, 2025.</li>
+                </ul>
+
+                <div class="pub-year">2024</div>
+                <ul>
+                    <li><b>Jie-Jing Shao*</b>, Hao-Sen Shi*, Lan-Zhe Guo, Yu-Feng Li. <a
+                            href="https://arxiv.org/abs/2406.12550">Offline Imitation Learning with
+                            Model-based Reverse Augmentation</a>. In: Proceedings of the 30th ACM SIGKDD Conference on
+                        Knowledge
+                        Discovery and Data Mining (<b>KDD'24</b>). (<a href="KDD24_SRA/index.html">Webpage</a>, <a
+                            href="https://github.com/sh-jj/SRA-KDD-2024">Code</a>, <a
+                            href="slides/SRA-KDD-0827.pdf">Slides</a>)</li>
+                    <li><b>Jie-Jing Shao*</b>, Xiao-Wen Yang*, Lan-Zhe Guo. <a
+                            href="https://link.springer.com/article/10.1007/s10994-022-06237-1">Open-Set Learning under
+                            Covariate Shift</a>.
+                        <b>Machine Learning</b>, 2024.
+                    </li>
+                    <li>Xiao-Wen Yang, Wen-Da Wei, <b>Jie-Jing Shao</b>, Yu-Feng Li, Zhi-Hua Zhou. <a
+                            href="https://openreview.net/pdf?id=AQYabSOfci">Analysis for
+                            Abductive Learning and Neural-Symbolic Reasoning Shortcuts</a>. In: Proceedings of the 41st
+                        International Conference on Machine Learning (<b>ICML'24</b>).</li>
+                    <li>Jiang-Xin Shi, Tong Wei, Zhi Zhou, <b>Jie-Jing Shao</b>, Xin-Yan Han, Yu-Feng Li. <a
+                            href="https://arxiv.org/abs/2309.10019">Long-Tail
+                            Learning with Foundation Model: Heavy Fine-tuning Hurts. </a> In: Proceedings of the 41st
+                        International Conference on Machine Learning (<b>ICML'24</b>).</li>
+                    <li>Xiao-Wen Yang, <b>Jie-Jing Shao</b>, Wei-Wei Tu, Yu-Feng Li, Wang-Zhou Dai, Zhi-Hua Zhou. <a
+                            href="https://ojs.aaai.org/index.php/AAAI/article/view/29572"> Safe
+                            Abductive Learning in the Presence of Inaccurate Rules</a>. In: Proceedings of the 38th AAAI
+                        conference on Artificial Intelligence (<b>AAAI'24</b>).</li>
+                </ul>
+
+                <div class="pub-year">2023</div>
+                <ul>
+                    <li><b>Jie-Jing Shao</b>, Hao-Sen Shi, Tian Xu, Lan-Zhe Guo, Yang Yu, Yu-Feng Li. <a
+                            href="https://openreview.net/pdf?id=7fxzVTSgZC">Offline Imitation
+                            Learning without Auxiliary High-quality Behavior Data</a>. Preprint, 2023.</li>
+                    <li><b>Jie-Jing Shao*</b>, Jiang-Xin Shi*, Xiao-Wen Yang*, Lan-Zhe Guo, Yu-Feng Li. <a
+                            href="https://arxiv.org/pdf/2310.03324">Investigating
+                            the Limitation of CLIP Models: The Worst-performing Categories</a>. Preprint, 2023.</li>
+                    <li>Xiao-Wen Yang, Hong-Jie You, Peng-Xiao Song, Hao-Ran Hao, <b>Jie-Jing Shao</b>, Yu-Feng Li.
+                        <a href="https://neurips2023-enlsp.github.io/papers/paper_32.pdf">Lightweight Retrieval Tuning
+                            for Black-Box Language Models</a>. In: Efficient Natural Language and
+                        Speech Processing Workshop at NeurIPS'23 (<b>ENLSP'23</b>).
+                    </li>
+                    <li>Lin-Han Jia, Lan-Zhe Guo, Zhi Zhou, <b>Jie-Jing Shao</b>, Yuke Xiang, Yu-Feng Li. <a
+                            href="https://proceedings.mlr.press/v202/jia23a/jia23a.pdf">Bidirectional
+                            Adaptation for Robust Semi-Supervised Learning with Inconsistent Data Distributions</a>. In:
+                        Proceedings of the 40th International Conference on Machine Learning (<b>ICML'23</b>).</li>
+                </ul>
+
+                <div class="pub-year">2022-2021</div>
+                <ul>
+                    <li><b>Jie-Jing Shao</b>, Lan-Zhe Guo, Xiao-Wen Yang, Yu-Feng Li. <a
+                            href="https://openreview.net/pdf?id=VdQWVdT_8v">LOG: Active Model Adaptation for
+                            Label-Efficient OOD Generalization</a>. In: Advances in Neural Information Processing
+                        Systems
+                        (<b>NeurIPS'22</b>).</li>
+                    <li><b>Jie-Jing Shao</b>, Yunlu Xu, Zhanzhan Cheng, Yu-Feng Li. <a
+                            href="https://cs.nju.edu.cn/liyf/paper/kdd22-auto.pdf">Active Model Adaptation Under
+                            Unknown Shift</a>. In: Proceedings of the 28th ACM SIGKDD Conference on Knowledge Discovery
+                        and Data
+                        Mining (<b>KDD'22</b>).</li>
+                    <li>Lan-Zhe Guo, Yi-Ge Zhang, Zhi-Fan Wu, <b>Jie-Jing Shao</b>, Yu-Feng Li. <a
+                            href="https://openreview.net/pdf?id=lDohSFOHr0">Robust Semi-Supervised
+                            Learning when Not All Classes have Labels</a>. In: Advances in Neural Information Processing
+                        Systems
+                        (<b>NeurIPS'22</b>).</li>
+                    <li><b>Jie-Jing Shao</b>, Zhanzhan Cheng, Yu-Feng Li, Shiliang Pu. <a
+                            href="https://www.ijcai.org/proceedings/2021/0407.pdf">Towards Robust Model Reuse in the
+                            Presence of Latent Domains</a>. In: Proceedings of the 30th International Joint Conference
+                        on
+                        Artificial Intelligence (<b>IJCAI'21</b>).</li>
+                    <li>Lan-Zhe Guo, Zhi Zhou, <b>Jie-Jing Shao</b>, Qi Zhang, Feng Kuang, Gao-Le Li, Zhang-Xun Liu,
+                        Guo-Bin Wu, Nan Ma, Qun Li, Yu-Feng Li. <a
+                            href="https://cs.nju.edu.cn/liyf/paper/kdd21-limi.pdf">Learning from Imbalanced and
+                            Incomplete Supervision with
+                            Its Application to Ride-Sharing Liability Judgment</a>. In: Proceedings of the 27th ACM
+                        SIGKDD Conference on Knowledge Discovery and Data Mining (<b>KDD'21</b>).</li>
+                </ul>
+            </template>
+
+            <!-- 3. By Topic -->
+            <template id="template-topic">
+                <div class="pub-topic">LLM Agents & Reasoning</div>
+                <ul>
+                    <li><b>Jie-Jing Shao*</b>, Bo-Wen Zhang*, Xiao-Wen Yang*, Bai-Zhi Chen, Si-Yu Han, Jing-Hao Pang,
+                        Wen-Da Wei, Guohao Cai, Zhenhua Dong, Lan-Zhe Guo, Yu-Feng Li. <a
+                            href="https://openreview.net/forum?id=0YRVlxY9BH">ChinaTravel: An Open-Ended Travel Planning
+                            Benchmark with Compositional Constraint Validation for Language Agents</a>. In: Proceedings
+                        of The 14th International Conference on Learning Representations (<b>ICLR'26</b>). <br> The
+                        preliminary version is accepted on the LLM Evals Workshop @ NeurIPS 2025. (<a
+                            href="ChinaTravel/index.html">Webpage</a>, <a
+                            href="https://github.com/LAMDASZ-ML/ChinaTravel">Code</a>)</li>
+                    <li>Xiao-Wen Yang, Xuan-Yi Zhu, Wen-Da Wei, Ding-Chu Zhang, <b>Jie-Jing Shao</b>, Zhi Zhou, Lan-Zhe
+                        Guo, Yu-Feng Li. <a href="https://arxiv.org/abs/2502.04404">Step Back to Leap Forward:
+                            Self-Backtracking for Boosting Reasoning of Language Models</a>. In: Proceedings of the 40th
+                        AAAI conference on Artificial Intelligence (<b>AAAI'26</b>).</li>
+                    <li><b>Jie-Jing Shao*</b>, Hong-Jie You*, Guohao Cai, Quanyu Dai, Zhenhua Dong, Lan-Zhe Guo. <a
+                            href="https://www.ijcai.org/proceedings/2025/0682.pdf">Breaking the Self-Evaluation Barrier:
+                            Reinforced Neuro-Symbolic Planning with Large Language Models</a>. In: Proceedings of the
+                        34th International Joint Conference on Artificial Intelligence (<b>IJCAI'25</b>).</li>
+                    <li>Xiao-Wen Yang, Hong-Jie You, Peng-Xiao Song, Hao-Ran Hao, <b>Jie-Jing Shao</b>, Yu-Feng Li. <a
+                            href="https://neurips2023-enlsp.github.io/papers/paper_32.pdf">Lightweight Retrieval Tuning
+                            for Black-Box Language Models</a>. In: Efficient Natural Language and Speech Processing
+                        Workshop at NeurIPS'23 (<b>ENLSP'23</b>).</li>
+                </ul>
+
+                <div class="pub-topic">Neuro-Symbolic Learning & Abductive Learning</div>
+                <ul>
+                    <li>Xiao-Wen Yang*, <b>Jie-Jing Shao*</b>, Lan-Zhe Guo*, Bo-Wen Zhang, Zhi Zhou, Lin-Han Jia,
+                        Wang-Zhou Dai, Yu-Feng Li. <a
+                            href="https://www.ijcai.org/proceedings/2025/1195.pdf">Neuro-Symbolic Artificial
+                            Intelligence: Towards Improving the Reasoning Abilities of Large Language Models</a>. In:
+                        Proceedings of the 34th International Joint Conference on Artificial Intelligence (<b>IJCAI'25
+                            Survey Track</b>).</li>
+                    <li><b>Jie-Jing Shao*</b>, Hao-Ran Hao*, Xiao-Wen Yang, Yu-Feng Li. <a
+                            href="https://arxiv.org/abs/2411.18201">Abductive Learning for Neuro-Symbolic Grounded
+                            Imitation</a>. In: Proceedings of the 31st ACM SIGKDD Conference on Knowledge Discovery and
+                        Data Mining (<b>KDD'25</b>). (<a href="KDD25_ABIL/index.html">Webpage</a>, <a
+                            href="https://github.com/Hoar012/ABIL-KDD-2025">Code</a>, <a
+                            href="slides/ABIL_PAKDDW_Slides_v3.pdf">Slides</a>). <br> Presented at PAKDD 2024 Workshop
+                        on Robust Machine Learning in Open Environments, <b>Best Paper Award</b> (<a
+                            href="slides/ABIL_PAKDDW_Slides_v3.pdf">Slides</a>)</li>
+                    <li>Lin-Han Jia, Wen-Chao Hu, <b>Jie-Jing Shao</b>, Lan-Zhe Guo, Yu-Feng Li. <a
+                            href="https://arxiv.org/abs/2503.12917">Verification Learning: Make Unsupervised
+                            Neuro-Symbolic System Feasible</a>. In: Proceedings of the 42nd International Conference on
+                        Machine Learning (<b>ICML'25</b>).</li>
+                    <li>Wen-Da Wei, Xiao-Wen Yang, <b>Jie-Jing Shao</b>, Lan-Zhe Guo. <a
+                            href="https://www.ijcai.org/proceedings/2025/0727.pdf">Curriculum Abductive Learning for
+                            Mitigating Reasoning Shortcuts</a>. In: Proceedings of the 34th International Joint
+                        Conference on Artificial Intelligence (<b>IJCAI'25</b>).</li>
+                    <li>Xiao-Wen Yang, Wen-Da Wei, <b>Jie-Jing Shao</b>, Yu-Feng Li, Zhi-Hua Zhou. <a
+                            href="https://openreview.net/pdf?id=AQYabSOfci">Analysis for Abductive Learning and
+                            Neural-Symbolic Reasoning Shortcuts</a>. In: Proceedings of the 41st International
+                        Conference on Machine Learning (<b>ICML'24</b>).</li>
+                    <li>Xiao-Wen Yang, <b>Jie-Jing Shao</b>, Wei-Wei Tu, Yu-Feng Li, Wang-Zhou Dai, Zhi-Hua Zhou. <a
+                            href="https://ojs.aaai.org/index.php/AAAI/article/view/29572"> Safe Abductive Learning in
+                            the Presence of Inaccurate Rules</a>. In: Proceedings of the 38th AAAI conference on
+                        Artificial Intelligence (<b>AAAI'24</b>).</li>
+                </ul>
+
+                <div class="pub-topic">Weakly-Supervised Learning</div>
+                <ul>
+                    <li>Lan-Zhe Guo, Lin-Han Jia, <b>Jie-Jing Shao</b>, Yu-Feng Li. <a
+                            href="https://arxiv.org/abs/2412.18256">Robust Semi-Supervised Learning in Open
+                            Environments</a>. <b>Frontiers of Computer Science</b>, 2025.</li>
+                    <li><b>Jie-Jing Shao*</b>, Hao-Sen Shi*, Lan-Zhe Guo, Yu-Feng Li. <a
+                            href="https://arxiv.org/abs/2406.12550">Offline Imitation Learning with Model-based Reverse
+                            Augmentation</a>. In: Proceedings of the 30th ACM SIGKDD Conference on Knowledge Discovery
+                        and Data Mining (<b>KDD'24</b>). (<a href="KDD24_SRA/index.html">Webpage</a>, <a
+                            href="https://github.com/sh-jj/SRA-KDD-2024">Code</a>, <a
+                            href="slides/SRA-KDD-0827.pdf">Slides</a>)</li>
+                    <li><b>Jie-Jing Shao*</b>, Xiao-Wen Yang*, Lan-Zhe Guo. <a
+                            href="https://link.springer.com/article/10.1007/s10994-022-06237-1">Open-Set Learning under
+                            Covariate Shift</a>. <b>Machine Learning</b>, 2024.</li>
+                    <li>Jiang-Xin Shi, Tong Wei, Zhi Zhou, <b>Jie-Jing Shao</b>, Xin-Yan Han, Yu-Feng Li. <a
+                            href="https://arxiv.org/abs/2309.10019">Long-Tail Learning with Foundation Model: Heavy
+                            Fine-tuning Hurts. </a> In: Proceedings of the 41st International Conference on Machine
+                        Learning (<b>ICML'24</b>).</li>
+                    <li><b>Jie-Jing Shao</b>, Hao-Sen Shi, Tian Xu, Lan-Zhe Guo, Yang Yu, Yu-Feng Li. <a
+                            href="https://openreview.net/pdf?id=7fxzVTSgZC">Offline Imitation Learning without Auxiliary
+                            High-quality Behavior Data</a>. Preprint, 2023.</li>
+                    <li><b>Jie-Jing Shao*</b>, Jiang-Xin Shi*, Xiao-Wen Yang*, Lan-Zhe Guo, Yu-Feng Li. <a
+                            href="https://arxiv.org/pdf/2310.03324">Investigating the Limitation of CLIP Models: The
+                            Worst-performing Categories</a>. Preprint, 2023.</li>
+                    <li>Lin-Han Jia, Lan-Zhe Guo, Zhi Zhou, <b>Jie-Jing Shao</b>, Yuke Xiang, Yu-Feng Li. <a
+                            href="https://proceedings.mlr.press/v202/jia23a/jia23a.pdf">Bidirectional Adaptation for
+                            Robust Semi-Supervised Learning with Inconsistent Data Distributions</a>. In: Proceedings of
+                        the 40th International Conference on Machine Learning (<b>ICML'23</b>).</li>
+                    <li><b>Jie-Jing Shao</b>, Lan-Zhe Guo, Xiao-Wen Yang, Yu-Feng Li. <a
+                            href="https://openreview.net/pdf?id=VdQWVdT_8v">LOG: Active Model Adaptation for
+                            Label-Efficient OOD Generalization</a>. In: Advances in Neural Information Processing
+                        Systems (<b>NeurIPS'22</b>).</li>
+                    <li><b>Jie-Jing Shao</b>, Yunlu Xu, Zhanzhan Cheng, Yu-Feng Li. <a
+                            href="https://cs.nju.edu.cn/liyf/paper/kdd22-auto.pdf">Active Model Adaptation Under Unknown
+                            Shift</a>. In: Proceedings of the 28th ACM SIGKDD Conference on Knowledge Discovery and Data
+                        Mining (<b>KDD'22</b>).</li>
+                    <li>Lan-Zhe Guo, Yi-Ge Zhang, Zhi-Fan Wu, <b>Jie-Jing Shao</b>, Yu-Feng Li. <a
+                            href="https://openreview.net/pdf?id=lDohSFOHr0">Robust Semi-Supervised Learning when Not All
+                            Classes have Labels</a>. In: Advances in Neural Information Processing Systems
+                        (<b>NeurIPS'22</b>).</li>
+                    <li><b>Jie-Jing Shao</b>, Zhanzhan Cheng, Yu-Feng Li, Shiliang Pu. <a
+                            href="https://www.ijcai.org/proceedings/2021/0407.pdf">Towards Robust Model Reuse in the
+                            Presence of Latent Domains</a>. In: Proceedings of the 30th International Joint Conference
+                        on Artificial Intelligence (<b>IJCAI'21</b>).</li>
+                    <li>Lan-Zhe Guo, Zhi Zhou, <b>Jie-Jing Shao</b>, Qi Zhang, Feng Kuang, Gao-Le Li, Zhang-Xun Liu,
+                        Guo-Bin Wu, Nan Ma, Qun Li, Yu-Feng Li. <a
+                            href="https://cs.nju.edu.cn/liyf/paper/kdd21-limi.pdf">Learning from Imbalanced and
+                            Incomplete Supervision with Its Application to Ride-Sharing Liability Judgment</a>. In:
+                        Proceedings of the 27th ACM SIGKDD Conference on Knowledge Discovery and Data Mining
+                        (<b>KDD'21</b>).</li>
+                </ul>
+            </template>
         </div>
       </section>
 
       <section id="projects">
-        <h2>Projects</h2>
-        <div class="project-grid">
-          <article class="project">
-            <h3><a href="ChinaTravel/index.html">Travel Planning Agents</a></h3>
-            <p>ChinaTravel benchmark, IJCAI 2025 and AIC 2025 travel planning challenges, and systematic evaluation of constraint satisfaction in real-world travel planning.</p>
-          </article>
-          <article class="project">
-            <h3><a href="https://neurips25-eai.github.io/">Foundation Models Meet Embodied Agents</a></h3>
-            <p>Re^2 Agent received the Most Innovative Approach Award in the NeurIPS 2025 Challenge on Foundation Models for Embodied Agents.</p>
-          </article>
-          <article class="project">
-            <h3><a href="http://www.jidiai.cn/aamas_2023/">AAMAS 2023 Card Games Competition</a></h3>
-            <p>Top 8 Finalists in the imperfect-information card games competition.</p>
-          </article>
-          <article class="project">
-            <h3>Multi-Task Learning for Recommendation</h3>
-            <p>Spark Award by Huawei, reported by the Department of Computer Science and Technology at Nanjing University.</p>
-          </article>
+        <h2>Featured Projects</h2>
+        <div class="project-list">
+          <ul class="project-items">
+            <li>
+              <strong>Travel Planning Agents</strong>
+              <p>A comprehensive ecosystem to advance language agents for real-world travel planning:</p>
+              <ul>
+                <li><strong>Benchmark</strong>: Developed <a href="ChinaTravel/index.html">ChinaTravel</a> (ICLR'26), the first benchmark for evaluating compositional language instructions, supporting both Chinese and English. [<a href="https://github.com/LAMDA-NeSy/ChinaTravel">Codebase</a>] [<a href="https://huggingface.co/datasets/LAMDA-NeSy/ChinaTravel">Dataset</a>] [<a href="https://huggingface.co/spaces/LAMDA-NeSy/ChinaTravel">Leaderboard</a>]</li>
+                <li><strong>Challenge Organization</strong>: Organized international challenges at <strong><a href="https://2025.ijcai.org">IJCAI 2025</a></strong> and <strong><a href="https://www.aicomp.cn">AIC 2025</a></strong> to promote agent research.</li>
+                <li><strong>Evaluation &amp; Analysis</strong>: Systematically evaluated the large language models (<a href="https://openreview.net/pdf?id=SXKIaWTe4N">Mind the Gap</a>) for agentic travel planning, awarded Best Student Paper at AAAI'26 Workshop.</li>
+                <li><strong>Applications/Demonstrations</strong>: <a href="https://www.saikr.com/vse/2024/DIGIX">The 6th Global Campus Artificial Intelligence Algorithm Elite Competition</a>, <a href="certificates/digix_national.pdf">Third Prize in National Finals</a> &amp; <a href="certificates/digix_jiangsu.pdf">Second Prize of Jiangsu Province</a>, 2024; National "AI+" Industry Application Innovation Competition, <a href="certificates/Industry_Application_Excellence.pdf">Excellence Award</a>, 2024.</li>
+              </ul>
+            </li>
+            <li>
+              <a href="https://neurips25-eai.github.io">NeurIPS 2025 Challenge on Foundation Models Meet Embodied Agents.</a> 2025.10-2025.12<br>
+              <strong><a href="certificates/EAI_award_certificate.pdf">Most Innovative Approach Award</a></strong>
+            </li>
+            <li>
+              <a href="http://www.jidiai.cn/aamas_2023/">AAMAS 2023 Imperfect-information Card Games Competition.</a> 2023.6<br>
+              <a href="certificates/AAMAS2023_top8.pdf">Top 8 Finalists</a>
+            </li>
+            <li>
+              Multi-Task Learning for Recommendation. 2022.11<br>
+              Spark Award by Huawei, <a href="https://cs.nju.edu.cn/46/76/c1660a607862/page.htm">Reported by department.</a>
+            </li>
+          </ul>
         </div>
       </section>
 
-      <section id="awards" class="two-col">
-        <div>
-          <h2>Awards</h2>
-          <ul class="plain-list">
-            <li>Best Student Paper Award, AAAI 2026 Workshop on Trustworthy Agentic AI.</li>
-            <li>Most Innovative Approach Award, NeurIPS 2025 Challenge on Foundation Models Meet Embodied Agents.</li>
-            <li>Huawei Scholarship, Nanjing University, 2025.</li>
-            <li>Best Paper Award, Robust Machine Learning in Open Environments Workshop at PAKDD 2024.</li>
-            <li>Tencent Scholarship and National Scholarship, Nanjing University.</li>
-          </ul>
-        </div>
-        <div id="service">
-          <h2>Service</h2>
-          <ul class="plain-list">
-            <li>Co-organizer, IJCAI 2025 Travel Planning Challenge.</li>
-            <li>Senior Program Committee, IJCAI 2025.</li>
-            <li>Reviewer for ICML, NeurIPS, ICLR, KDD, AAAI, IJCAI, CVPR, ECCV, ECAI, and ACML.</li>
-            <li>Reviewer for Machine Learning, Neural Networks, JAIR, and IEEE TAI.</li>
-          </ul>
-        </div>
+      <section id="awards">
+        <h2>Awards &amp; Honors</h2>
+        <ul class="plain-list">
+          <li>Best Student Paper Award, AAAI 2026 Workshop on Trustworthy Agentic AI, 2026.</li>
+          <li>Most Innovative Approach Award, NeurIPS 2025 Challenge on Foundation Models Meet Embodied Agents, 2025.</li>
+          <li>Huawei Scholarship, Nanjing University, 2025.</li>
+          <li>Best Paper Award, Robust Machine Learning in Open Environments Workshop@PAKDD 2024.</li>
+          <li>Postgraduate Research &amp; Practice Innovation Program of Jiangsu Province, Jiangsu Province, 2024.</li>
+          <li>Tencent Scholarship, Nanjing University, 2022.</li>
+          <li>Outstanding Graduate Students, Nanjing University, 2021.</li>
+          <li>National Scholarship, Nanjing University, 2021.</li>
+          <li>LAMDA Elite Award, Runner-up, 2021.</li>
+          <li>Tang Aoqing Honors Program of Research and Practice Award, First Prize, Jilin University, 2016.6.</li>
+          <li>ACM-ICPC Asia Regional Contest, 2 Gold Medals, Shenyang, 2015.10 &amp; Dalian, 2016.10.</li>
+          <li>CCPC Regional Contest, Gold Medal (4th place), Changchun, 2016.9.</li>
+          <li>CCPC Northeast Collegiate Programming Contest, Gold Medal (2nd place), Changchun, 2016.9.</li>
+          <li>CCPC Jilin Province Collegiate Programming Contest, 2 Championships, Changchun, 2015.9 &amp; 2016.9.</li>
+        </ul>
+      </section>
+
+      <section id="presentations">
+        <h2>Presentations</h2>
+        <ul class="plain-list">
+          <li>Oral Presentation, KDD 2024 [<a href="slides/SRA-KDD-0827.pdf">Slides</a>].</li>
+          <li>Oral Presentation, OpenML Workshop@PAKDD 2024 [<a href="slides/ABIL_PAKDDW_Slides_v3.pdf">Slides</a>].</li>
+          <li>Invited Presentation, <a href="https://sites.google.com/view/zhigao-guo/causality-seminar">Causality Seminar</a> [<a href="slides/NeurIPS22-LOG-Slides-v20230922.pdf">Slides</a>].</li>
+          <li>Invited Presentation, <a href="https://ijcai.org.cn/programs/">IJCAI-YES 2023</a> [<a href="slides/IJCAI-YES-23.pdf">Slides</a>].</li>
+          <li>Poster Spotlight Session, <a href="https://parnec.nuaa.edu.cn/mla21/">"机器学习及其应用" (MLA) 2021</a>.</li>
+        </ul>
+      </section>
+
+      <section id="service">
+        <h2>Academic Service</h2>
+        <ul class="plain-list service-list">
+          <li><strong>Co-Organizer</strong>: <a href="https://chinatravel-competition.github.io/IJCAI2025/">IJCAI 2025 Competition: Travel Planning Challenge</a>.</li>
+          <li><strong>Senior Program Committee</strong>: IJCAI 2025.</li>
+          <li><strong>Reviewer for Conferences</strong>: ICML 2023, 2024, 2025, 2026; NeurIPS 2023, 2024, 2025; ICLR 2024, 2025, 2026; KDD 2024, 2025 (Excellent Reviewers), 2026; AAAI 2023, 2024, 2025, 2026; IJCAI 2024, 2025, 2026; CVPR 2026; ECCV 2026; ECAI 2023; ACML 2021, 2022.</li>
+          <li><strong>Reviewer for Journals</strong>: Machine Learning; Neural Networks; Journal of Artificial Intelligence Research; IEEE Transactions on Artificial Intelligence.</li>
+        </ul>
       </section>
 
       <footer class="footer">
@@ -220,18 +721,30 @@
     </main>
 
     <script>
-      const filterButtons = document.querySelectorAll("[data-filter]");
-      const papers = document.querySelectorAll(".publication");
+      const publicationButtons = document.querySelectorAll("[data-pub-view]");
+      const publicationsViewport = document.getElementById("pubs-viewport");
 
-      filterButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-          const filter = button.dataset.filter;
-          filterButtons.forEach((item) => item.classList.toggle("active", item === button));
-          papers.forEach((paper) => {
-            paper.hidden = !paper.dataset.kind.split(" ").includes(filter);
-          });
+      function showPublicationView(button) {
+        if (!button || !publicationsViewport) return;
+
+        const templateId = button.dataset.template;
+        const template = document.getElementById(templateId);
+        if (!template) return;
+
+        publicationsViewport.replaceChildren(template.content.cloneNode(true));
+        publicationButtons.forEach((item) => {
+          const isActive = item === button;
+          item.classList.toggle("active", isActive);
+          item.setAttribute("aria-selected", String(isActive));
         });
+      }
+
+      publicationButtons.forEach((button) => {
+        button.setAttribute("role", "tab");
+        button.addEventListener("click", () => showPublicationView(button));
       });
+
+      showPublicationView(document.querySelector('[data-pub-view="selected"]'));
     </script>
   </body>
 </html>
