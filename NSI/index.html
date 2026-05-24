@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="Project page for Neuro-Symbolic Skill Induction (NSI), an ICML 2026 paper on lifting interaction traces into logic-grounded skills for long-horizon agentic tasks.">
+  <meta name="keywords"
+    content="Neuro-Symbolic Skill Induction, NSI, Lifting Traces to Logic, Long-Horizon Agentic Tasks, ICML 2026">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NSI: Neuro-Symbolic Skill Induction</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../ChinaTravel/static/css/bulma.min.css">
+  <link rel="stylesheet" href="../ChinaTravel/static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script defer src="../ChinaTravel/static/js/fontawesome.all.min.js"></script>
+</head>
+
+<body>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="nsi-navbar-menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div id="nsi-navbar-menu" class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="../index.html">
+          <span class="icon">
+            <i class="fas fa-home"></i>
+          </span>
+        </a>
+        <a class="navbar-item" href="#abstract">Abstract</a>
+        <a class="navbar-item" href="#method">Method</a>
+        <a class="navbar-item" href="#experiments">Experiments</a>
+        <a class="navbar-item" href="#evolution">Skill Honing</a>
+        <a class="navbar-item" href="#BibTeX">BibTeX</a>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">More Research</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="../ChinaTravel/index.html">ChinaTravel</a>
+            <a class="navbar-item" href="../KDD25_ABIL/index.html">KDD25-ABIL</a>
+            <a class="navbar-item" href="../KDD24_SRA/index.html">KDD24-SRA</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero publication-header">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">
+              <span class="title-accent">Lifting Traces to Logic:</span><br>
+              Programmatic Skill Induction with Neuro-Symbolic Learning for Long-Horizon Agentic Tasks
+            </h1>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://www.lamda.nju.edu.cn/shaojj">Jie-Jing Shao</a><sup>1,2</sup>,</span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=xy6_gBUAAAAJ">Haiyan Yin</a><sup>2</sup>,</span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=uQXB6-oAAAAJ">Yueming Lyu</a><sup>2</sup>,</span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=a1UeOvUAAAAJ">Xingrui Yu</a><sup>2</sup>,</span>
+              <span class="author-block">
+                <a href="https://www.lamda.nju.edu.cn/guolz/">Lan-Zhe Guo</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=rJMOlVsAAAAJ">Ivor W. Tsang</a><sup>2</sup>,</span>
+              <span class="author-block">
+                <a href="https://cse.hkust.edu.hk/faculty/jamesk/">James T. Kwok</a><sup>3</sup>,</span>
+              <span class="author-block">
+                <a href="https://cs.nju.edu.cn/liyf/">Yu-Feng Li</a><sup>1</sup>
+              </span>
+            </div>
+
+            <div class="is-size-6 publication-authors" style="margin-top: 15px;">
+              <span class="author-block"><sup>1</sup>LAMDA Group, Nanjing University</span><br>
+              <span class="author-block"><sup>2</sup>CFAR &amp; IHPC, A*STAR, Singapore</span><br>
+              <span class="author-block"><sup>3</sup>HKUST</span>
+            </div>
+
+            <div class="is-size-5 publication-authors venue-line">ICML 2026</div>
+
+            <div class="column has-text-centered" style="margin-top: 10px;">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2605.01293"
+                    class="external-link button is-normal is-rounded btn-modern">
+                    <span class="icon">
+                      <i class="fas fa-scroll"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://arxiv.org/pdf/2605.01293"
+                    class="external-link button is-normal is-rounded btn-modern">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="#BibTeX" class="external-link button is-normal is-rounded btn-secondary">
+                    <span class="icon">
+                      <i class="fas fa-quote-right"></i>
+                    </span>
+                    <span>BibTeX</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <img src="./static/images/overview.png" alt="Overview of the Neuro-Symbolic Skill Induction framework">
+        <h2 class="subtitle has-text-centered teaser-caption">
+          NSI lifts successful interaction traces into reusable, logic-grounded programs. The framework grounds
+          observations with first-order predicates, synthesizes modular control flows offline, and keeps improving
+          skills online through reflective planning.
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="abstract">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 section-title-highlight">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Foundation model-driven agents often struggle with long-horizon planning because purely
+              prompting-based reasoning is transient. Existing skill induction methods distill experience into
+              state-blind parameterized scripts, but they fail to capture the conditional logic needed for robust
+              execution in dynamic environments. Neuro-Symbolic Skill Induction (NSI) lifts interaction traces into
+              modular, logic-grounded programs. By synthesizing explicit control flow and dynamic variable binding,
+              NSI lets agents discover when and why to act, induce skills from few-shot examples, and flexibly adapt to
+              unseen goals.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="method">
+    <div class="container is-max-desktop">
+      <div class="box-shadow-custom">
+        <h2 class="title is-3 section-title-highlight">Neuro-Symbolic Skill Induction</h2>
+        <div class="content has-text-justified">
+          <p>
+            NSI redefines agent skills as modular programs whose actions are governed by explicit symbolic predicates.
+            Rather than replaying a linear action script, each skill has neural grounding for state tracking and a
+            symbolic execution graph for control, data binding, primitive actions, and terminal feedback.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature-card">
+            <h3>NeSy Grounding</h3>
+            <p>Map observations into first-order predicates so execution can reason over entities, relations, and
+              grounded state changes.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Modular Synthesis</h3>
+            <p>Invent branching, crossover, lifting, and loop-folding modules that turn local traces into reusable
+              control structures.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Online Evolution</h3>
+            <p>Use runtime feedback to revise feasibility conditions and graft recovery branches onto existing skill
+              graphs.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="box-shadow-custom accent-orange">
+        <h2 class="title is-3 section-title-highlight">From Trace Scripts to Logic-Grounded Programs</h2>
+        <div class="columns is-vcentered">
+          <div class="column is-half">
+            <img src="./static/images/trace_to_logic.png" class="img-shadow"
+              alt="Comparison between trajectory induction and logic-grounded induction">
+          </div>
+          <div class="column is-half">
+            <div class="content has-text-justified">
+              <p>
+                Linear skills encode what happened in a successful trajectory. NSI instead lifts traces into workflows
+                that make the hidden execution logic explicit, such as checking whether the target object exists before
+                picking it and branching when the environment differs from the demonstration.
+              </p>
+              <p>
+                This representation closes the gap between text-only experience reuse and executable programs: skills
+                are readable by language models, but their behavior is controlled by state-aware symbolic structure.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="experiments">
+    <div class="container is-max-desktop">
+      <div class="box-shadow-custom">
+        <h2 class="title is-3 section-title-highlight">Empirical Results</h2>
+        <div class="content has-text-justified">
+          <p>
+            NSI is evaluated on ALFWorld, WebShop, and TextCraft, covering embodied household tasks, web shopping, and
+            recursive crafting. Across these long-horizon domains, NSI improves over prompting agents, reflection-based
+            agents, workflow memory, and prior programmatic skill induction baselines.
+          </p>
+        </div>
+        <img src="./static/images/main_results.png" class="img-shadow"
+          alt="Main results table comparing NSI with baselines on ALFWorld, WebShop, and TextCraft">
+        <p class="figure-caption">
+          NSI achieves the highest reported performance across ALFWorld, WebShop reward and success rate, and TextCraft.
+        </p>
+
+        <div class="metric-grid">
+          <div class="metric-card">
+            <strong>98.0%</strong>
+            <p>Success rate on ALFWorld, compared with 93.5% for NSI without online honing.</p>
+          </div>
+          <div class="metric-card">
+            <strong>44.5%</strong>
+            <p>Success rate on WebShop, improving over the strongest reported non-NSI baseline.</p>
+          </div>
+          <div class="metric-card">
+            <strong>95.2%</strong>
+            <p>Success rate on TextCraft, showing robust compositional generalization.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="box-shadow-custom accent-orange">
+        <h2 class="title is-3 section-title-highlight">Impact of Logic-Grounded Skills</h2>
+        <img src="./static/images/logic_impact.png" class="img-shadow"
+          alt="Analysis of execution efficiency and long-horizon robustness">
+        <p class="figure-caption">
+          Logic-grounded skills compress long action sequences into reusable macro-executions while preserving
+          conditional checks, which helps avoid long-horizon collapse.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="evolution">
+    <div class="container is-max-desktop">
+      <div class="box-shadow-custom">
+        <h2 class="title is-3 section-title-highlight">Modular Skill Honing</h2>
+        <div class="content has-text-justified">
+          <p>
+            During deployment, runtime failures expose missing logic rather than forcing the agent to discard the whole
+            skill. Reflective planning generates a local recovery trajectory, and NSI synthesizes it into a new
+            subgraph attached to the failure node. The skill grows from a linear chain into a branching, repairable
+            program.
+          </p>
+        </div>
+        <img src="./static/images/online_evolution.png" class="img-shadow"
+          alt="Representative cases of online skill evolution across ALFWorld, WebShop, and TextCraft">
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title section-title-highlight">BibTeX</h2>
+      <div class="code-wrap">
+        <button id="copy-bibtex-btn" class="button is-small btn-modern is-rounded copy-button" type="button">
+          <span class="icon"><i class="fas fa-copy"></i></span><span>Copy</span>
+        </button>
+        <pre><code id="bibtex-code">@inproceedings{shao2026liftingtraces,
+  title={Lifting Traces to Logic: Programmatic Skill Induction with Neuro-Symbolic Learning for Long-Horizon Agentic Tasks},
+  author={Jie-Jing Shao and Haiyan Yin and Yueming Lyu and Xingrui Yu and Lan-Zhe Guo and Ivor W. Tsang and James T. Kwok and Yu-Feng Li},
+  booktitle={Proceedings of the 43rd International Conference on Machine Learning},
+  year={2026},
+  url={https://arxiv.org/abs/2605.01293}
+}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="content has-text-centered">
+          <p>
+            Website style follows the academic project-page template used by
+            <a href="../ChinaTravel/index.html">ChinaTravel</a> and acknowledges
+            <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var burgers = Array.prototype.slice.call(document.querySelectorAll(".navbar-burger"), 0);
+      burgers.forEach(function (burger) {
+        burger.addEventListener("click", function () {
+          var target = document.getElementById(burger.dataset.target);
+          burger.classList.toggle("is-active");
+          if (target) {
+            target.classList.toggle("is-active");
+          }
+        });
+      });
+
+      var copyButton = document.getElementById("copy-bibtex-btn");
+      var bibtexCode = document.getElementById("bibtex-code");
+      if (copyButton && bibtexCode) {
+        copyButton.addEventListener("click", function () {
+          function fallbackCopy(text) {
+            var textarea = document.createElement("textarea");
+            textarea.value = text;
+            textarea.setAttribute("readonly", "");
+            textarea.style.position = "fixed";
+            textarea.style.left = "-9999px";
+            document.body.appendChild(textarea);
+            textarea.select();
+            var ok = document.execCommand("copy");
+            document.body.removeChild(textarea);
+            return ok;
+          }
+
+          function markCopied() {
+            var original = copyButton.innerHTML;
+            copyButton.innerHTML = '<span class="icon"><i class="fas fa-check"></i></span><span>Copied!</span>';
+            setTimeout(function () {
+              copyButton.innerHTML = original;
+            }, 2000);
+          }
+
+          var text = bibtexCode.innerText;
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(markCopied).catch(function () {
+              if (fallbackCopy(text)) {
+                markCopied();
+              }
+            });
+          } else if (fallbackCopy(text)) {
+            markCopied();
+          }
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>
