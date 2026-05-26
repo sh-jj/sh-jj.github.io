@@ -65,3 +65,8 @@ for (const ref of localRefs) {
 
 const home = readFileSync(homePath, "utf8");
 assert.ok(home.includes("NSI/index.html"), "homepage publication list should link to NSI project page");
+
+const selectedTemplate = home.match(/<template id="template-selected">([\s\S]*?)<\/template>/)?.[1] ?? "";
+assert.ok(selectedTemplate, "homepage should include selected publications template");
+assert.ok(!selectedTemplate.includes("pub-nsi"), "NSI should not appear under the selected publications tab");
+assert.ok(!selectedTemplate.includes("NSI/index.html"), "selected publications tab should not link to NSI project page");
