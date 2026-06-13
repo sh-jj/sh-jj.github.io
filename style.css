@@ -107,14 +107,14 @@ a:hover {
   font-weight: 500;
 }
 
-.role {
+.hero p {
+  margin: 0 0 13px;
+}
+
+.hero .role {
   margin: 12px 0 18px;
   color: var(--muted);
   font-size: 18px;
-}
-
-.hero p {
-  margin: 0 0 13px;
 }
 
 .link-row {
