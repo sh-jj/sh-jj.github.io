@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 const repoRoot = dirname(dirname(fileURLToPath(import.meta.url)));
 const pagePath = join(repoRoot, "NSI", "index.html");
 const homePath = join(repoRoot, "index.html");
+const codeUrl = "https://github.com/sh-jj/Lifting-Traces-to-Logic-NSI";
 
 assert.ok(existsSync(pagePath), "NSI/index.html should exist");
 
@@ -25,6 +26,7 @@ for (const text of [
   "<sup>3</sup>HKUST",
   "https://arxiv.org/abs/2605.01293",
   "https://arxiv.org/pdf/2605.01293",
+  codeUrl,
   "id=\"abstract\"",
   "id=\"method\"",
   "id=\"experiments\"",
@@ -65,6 +67,11 @@ for (const ref of localRefs) {
 
 const home = readFileSync(homePath, "utf8");
 assert.ok(home.includes("NSI/index.html"), "homepage publication list should link to NSI project page");
+assert.equal(
+  [...home.matchAll(new RegExp(codeUrl.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "g"))].length,
+  3,
+  "homepage should link to the NSI code from each NSI publication entry",
+);
 
 const selectedTemplate = home.match(/<template id="template-selected">([\s\S]*?)<\/template>/)?.[1] ?? "";
 assert.ok(selectedTemplate, "homepage should include selected publications template");
