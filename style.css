@@ -172,6 +172,39 @@ h3 {
   font-style: italic;
 }
 
+.news-scroll-area {
+  max-height: 19rem;
+  overflow-y: auto;
+  padding-right: 14px;
+  scrollbar-gutter: stable;
+  scrollbar-color: #9ba9b6 var(--soft);
+  scrollbar-width: thin;
+}
+
+.news-scroll-area:focus-visible {
+  outline: 2px solid rgba(47, 111, 159, 0.45);
+  outline-offset: 4px;
+}
+
+.news-scroll-area::-webkit-scrollbar {
+  width: 8px;
+}
+
+.news-scroll-area::-webkit-scrollbar-track {
+  border-radius: 999px;
+  background: var(--soft);
+}
+
+.news-scroll-area::-webkit-scrollbar-thumb {
+  border: 2px solid var(--soft);
+  border-radius: 999px;
+  background: #9ba9b6;
+}
+
+.news-scroll-area::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
 .news-list {
   margin: 0;
   padding-left: 2em;
@@ -437,6 +470,11 @@ h3 {
 
   .news-list {
     padding-left: 1.4em;
+  }
+
+  .news-scroll-area {
+    max-height: 20rem;
+    padding-right: 10px;
   }
 
   .publication img {
