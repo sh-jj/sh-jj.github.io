@@ -532,6 +532,33 @@ h3 {
   margin-bottom: 8px;
 }
 
+.award-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.award-list li {
+  display: grid;
+  grid-template-columns: 1.4rem minmax(0, 1fr);
+  column-gap: 4px;
+  align-items: start;
+}
+
+.award-icon {
+  line-height: 1.65;
+  text-align: center;
+}
+
+.award-keyword {
+  transition: color 180ms ease, text-shadow 180ms ease;
+}
+
+.award-list li:hover .award-keyword,
+.award-list li:focus-within .award-keyword {
+  color: #bf4d6c;
+  text-shadow: 0 1px 10px rgba(191, 77, 108, 0.16);
+}
+
 #news h2 {
   font-style: italic;
 }
