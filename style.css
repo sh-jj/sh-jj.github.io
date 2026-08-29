@@ -334,7 +334,7 @@ h3 {
 
 .mentorship-card {
   position: relative;
-  min-height: 204px;
+  min-height: 184px;
   overflow: hidden;
   border: 1px solid rgba(47, 111, 159, 0.16);
   border-radius: 8px;
@@ -360,18 +360,10 @@ h3 {
   transform: translateY(-3px);
 }
 
-.mentorship-index {
-  padding: 14px 16px 0;
-  color: rgba(47, 111, 159, 0.7);
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-}
-
 .mentorship-card-body {
   position: relative;
   z-index: 1;
-  padding: 18px 20px 16px;
+  padding: 16px 20px 14px;
 }
 
 .mentorship-card h3 {
