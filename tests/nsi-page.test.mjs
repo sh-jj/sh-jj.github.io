@@ -75,5 +75,5 @@ assert.equal(
 
 const selectedTemplate = home.match(/<template id="template-selected">([\s\S]*?)<\/template>/)?.[1] ?? "";
 assert.ok(selectedTemplate, "homepage should include selected publications template");
-assert.ok(!selectedTemplate.includes("pub-nsi"), "NSI should not appear under the selected publications tab");
-assert.ok(!selectedTemplate.includes("NSI/index.html"), "selected publications tab should not link to NSI project page");
+assert.ok(selectedTemplate.includes("pub-nsi"), "NSI should appear under the selected publications tab");
+assert.ok(selectedTemplate.includes("NSI/index.html"), "selected publications tab should link to NSI project page");
