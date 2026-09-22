@@ -54,12 +54,6 @@ a:hover {
   padding: 14px 24px;
 }
 
-.brand {
-  color: var(--text);
-  font-weight: 700;
-  letter-spacing: 0;
-}
-
 .nav-links {
   display: flex;
   gap: 18px;
