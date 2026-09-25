@@ -4,6 +4,33 @@ const allPublications = [...document.getElementById('template-date').content.que
 function papersForTopic(id) {
   return allPublications.filter(paper => paper.dataset.topics.split(/\s+/).includes(id.replace(/^topic-/, '')));
 }
+function createPaperMeta(paper) {
+  const citation = paper.querySelector('.paper-citation');
+  const rawVenue = citation?.querySelector('b')?.textContent.trim()
+    || citation?.textContent.trim().split(/[.(]/, 1)[0].trim();
+  const venue = rawVenue?.replace(/'([0-9]{2})\b/g, (_, year) => ` ${Number(year) >= 70 ? '19' : '20'}${year}`);
+  const topicIds = (paper.dataset.topics || '').split(/\s+/).filter(Boolean);
+  const meta = document.createElement('div');
+  meta.className = 'pub-paper-meta';
+  if (venue) {
+    const badge = document.createElement('span');
+    badge.className = 'pub-paper-venue';
+    badge.textContent = venue;
+    meta.append(badge);
+  }
+  const tags = document.createElement('div');
+  tags.className = 'pub-paper-topics';
+  tags.setAttribute('aria-label', 'Paper topics');
+  topicTemplate.content.querySelectorAll('.pub-topic').forEach(heading => {
+    if (!topicIds.includes(heading.id.replace(/^topic-/, ''))) return;
+    const tag = document.createElement('span');
+    tag.className = heading.className.replace('pub-topic', 'pub-paper-topic');
+    tag.textContent = heading.textContent;
+    tags.append(tag);
+  });
+  if (tags.childElementCount) meta.append(tags);
+  return meta;
+}
 topicTemplate.content.querySelectorAll('.pub-topic').forEach(heading => {
   const button = document.createElement('button');
   button.type = 'button';
@@ -87,6 +114,12 @@ function showPublicationView(button) {
     const list = document.createElement('ul');
     list.append(...papersForTopic(button.dataset.topic).map(paper => paper.cloneNode(true)));
     viewport.replaceChildren(heading, list);
+  }
+  if (button.dataset.pubView !== 'selected') {
+    viewport.querySelectorAll('.pub-card').forEach(paper => {
+      const title = paper.querySelector('.paper-title');
+      if (title) title.before(createPaperMeta(paper));
+    });
   }
   publicationButtons.forEach(item => {
     const active = item === button;

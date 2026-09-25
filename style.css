@@ -1015,7 +1015,6 @@ main > section:not([hidden]) { animation: page-in 180ms ease-out; }
 .pub-topic[id^="topic-"] { color: var(--topic-ink); scroll-margin-top: 150px; }
 
 /* Selected publications: larger artwork and a restrained editorial hierarchy. */
-.container:has(#publications:not([hidden]) #pubs-viewport[data-view="selected"]) { max-width: 1120px; }
 #pubs-viewport[data-view="selected"] > p { font-size: 13px; margin-bottom: 20px; }
 #pubs-viewport[data-view="selected"] li {
   grid-template-columns: 270px minmax(0, 1fr);
@@ -1044,6 +1043,11 @@ main > section:not([hidden]) { animation: page-in 180ms ease-out; }
 #pubs-viewport[data-view="selected"] .pub-highlight span { display: block; color: var(--muted); font-size: 12px; }
 #pubs-viewport[data-view="selected"] .pub-highlight-award { border-color: #c9a55b; }
 #pubs-viewport[data-view="selected"] .pub-highlight-award strong { color: #85601c; }
+#pubs-viewport[data-view="selected"] .pub-highlights {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  gap: 4px 18px; margin: 13px 0;
+}
+#pubs-viewport[data-view="selected"] .pub-highlights .pub-highlight { margin: 0; }
 #pubs-viewport[data-view="selected"] .pub-links { display: flex; flex-wrap: wrap; gap: 5px 16px; margin: 14px 0 0; }
 #pubs-viewport[data-view="selected"] .pub-links a {
   padding: 3px 0; border: 0; border-radius: 0; color: var(--muted); font-size: 12px; font-weight: 400;
@@ -1065,8 +1069,14 @@ main > section:not([hidden]) { animation: page-in 180ms ease-out; }
 .pub-paper-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-bottom: 12px; }
 #pubs-viewport[data-view="selected"] .pub-paper-meta .paper-citation { margin: 0; }
 .pub-paper-topics { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; }
+.pub-paper-venue {
+  display: inline-block; padding: 4px 11px; border-radius: 999px;
+  background: #edf4f9; color: var(--accent-strong);
+  font-size: 12px; font-weight: 650; line-height: 1.5;
+}
 .pub-paper-topic {
   display: inline-block; padding: 4px 11px; border-radius: 999px;
   background: var(--topic-bg); color: var(--topic-ink);
   font-size: 12px; font-weight: 650; line-height: 1.5;
 }
+#pubs-viewport:not([data-view="selected"]) .pub-paper-meta { margin: 0 0 8px; }
