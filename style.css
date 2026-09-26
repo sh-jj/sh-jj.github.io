@@ -615,25 +615,224 @@ h3 {
   color: #fe667b;
 }
 
+/* Research overview: broad research areas with representative work. */
+#research {
+  width: min(1200px, calc(100vw - 48px));
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.research-intro {
+  max-width: none;
+  margin-bottom: 22px;
+}
+
 .research-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 390px), 1fr));
+  gap: 12px;
 }
 
 .research-item {
+  --research-color: #315d8c;
+  --research-tint: #f4f8fc;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 12px;
+  border-left: 3px solid var(--research-color);
+  border-radius: 0 4px 4px 0;
+  background: var(--research-tint);
+}
+
+.research-neuro-symbolic {
+  --research-color: #75603e;
+  --research-tint: #fcfaf5;
+}
+
+.research-learning {
+  --research-color: #3d6c59;
+  --research-tint: #f5f9f6;
+}
+
+.research-item h3 {
+  margin: 0 0 9px;
+  color: var(--research-color);
+  font-size: 16px;
+  line-height: 1.4;
+  letter-spacing: -0.2px;
+}
+
+.research-icon {
+  margin-right: 3px;
+}
+
+.research-subtopics {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 10.5px;
+  line-height: 1.8;
+}
+
+.research-subtopics h4 {
+  display: inline;
+  margin: 0 4px 0 0;
+  color: var(--text);
+  font-size: 11.5px;
+  font-weight: 650;
+  line-height: 2.2;
+}
+
+.research-papers {
+  display: inline;
+}
+
+.research-papers .research-paper:not(:last-child)::after {
+  content: ", ";
+  color: var(--muted);
+  text-decoration: none;
+  display: inline-block;
+  margin-right: 3px;
+}
+
+.research-paper {
+  appearance: none;
+  display: inline-block;
+  vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--research-color);
+  font: inherit;
+  font-size: 10.5px;
+  font-weight: 650;
+  line-height: 1.5;
+  white-space: nowrap;
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.research-paper:hover,
+.research-paper:focus-visible,
+.research-paper[aria-expanded="true"] {
+  color: var(--accent-strong);
+  text-decoration-style: solid;
+}
+
+/* Interactive paper details, inspired by zhiningliu.com's research popovers. */
+.research-popover {
+  position: fixed;
+  z-index: 30;
+  width: min(360px, calc(100vw - 24px));
+  max-height: calc(100dvh - 24px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
   padding: 16px;
+  border: 1px solid #cfd9e4;
+  border-radius: 6px;
+  background: var(--bg);
+  box-shadow: 0 12px 30px rgb(23 32 42 / 16%);
+  line-height: 1.45;
+}
+
+.research-popover[hidden] { display: none; }
+
+.research-popover-close {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.research-popover-close:hover { background: var(--soft); }
+
+.research-popover-venue {
+  padding-right: 26px;
+  color: #95602e;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.research-popover h3 {
+  margin: 6px 18px 12px 0;
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.research-popover-insight {
+  margin: 12px 0;
+  padding: 9px 10px;
+  border-left: 3px solid var(--accent);
+  background: var(--soft);
+  font-size: 13px;
+}
+
+.research-popover-insight strong,
+.research-popover-resources > strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 11px;
+}
+
+.research-popover-topics,
+.research-popover-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.research-popover-topics span {
+  padding: 2px 6px;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 4px;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.research-popover-resources {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+}
+
+.research-popover-links a {
+  padding: 4px 8px;
+  border: 1px solid #c8d5e3;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.research-popover-links a:hover {
   background: var(--soft);
 }
 
-.research-item p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.55;
+.research-popover-highlights .pub-highlight {
+  margin: 7px 0;
+  font-size: 11px;
 }
+
+.research-popover-highlights .pub-highlight > strong,
+.research-popover-highlights .pub-highlight > span {
+  display: block;
+}
+
+#research-heading { scroll-margin-top: 95px; }
 
 .education-list {
   margin: 0;
@@ -833,7 +1032,6 @@ h3 {
 
   .hero,
   .publication,
-  .research-grid,
   .mentorship-grid {
     grid-template-columns: 1fr;
   }
