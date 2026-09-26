@@ -616,13 +616,6 @@ h3 {
 }
 
 /* Research overview: broad research areas with representative work. */
-#research {
-  width: min(1200px, calc(100vw - 48px));
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
 .research-intro {
   max-width: none;
   margin-bottom: 22px;
@@ -630,7 +623,7 @@ h3 {
 
 .research-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 390px), 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
 }
 
@@ -1032,6 +1025,7 @@ h3 {
 
   .hero,
   .publication,
+  .research-grid,
   .mentorship-grid {
     grid-template-columns: 1fr;
   }
