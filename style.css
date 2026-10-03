@@ -1272,3 +1272,53 @@ main > section:not([hidden]) { animation: page-in 180ms ease-out; }
   font-size: 12px; font-weight: 650; line-height: 1.5;
 }
 #pubs-viewport:not([data-view="selected"]) .pub-paper-meta { margin: 0 0 8px; }
+
+/* Contact/profile links: keep tooltips out of document flow. */
+.profile-link {
+  position: relative;
+  gap: 6px;
+  min-height: 34px;
+  border-radius: 999px;
+  white-space: nowrap;
+  transition: background-color .16s, color .16s, transform .16s;
+}
+.profile-logo { width: 16px; height: 16px; flex: 0 0 16px; fill: currentColor; }
+.profile-link:hover, .profile-link:focus-visible {
+  background: var(--accent-strong);
+  border-color: var(--accent-strong);
+  color: white;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+.profile-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.profile-tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(calc(-50% + var(--tooltip-shift, 0px)));
+  z-index: 20;
+  width: max-content;
+  max-width: calc(100vw - 24px);
+  padding: 7px 10px;
+  border-radius: 6px;
+  background: #253443;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  box-shadow: 0 4px 12px #1b1f2420;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .15s, visibility .15s;
+}
+.profile-tooltip::after { content: ''; position: absolute; top: 100%; left: 0; width: 100%; height: 10px; }
+.profile-link:not(.tooltip-dismissed):hover .profile-tooltip,
+.profile-link:not(.tooltip-dismissed):focus-visible .profile-tooltip { visibility: visible; opacity: 1; }
+@media (hover: none) { .profile-link { min-height: 44px; } }
+@media (prefers-reduced-motion: reduce) { .profile-link, .profile-tooltip { transition: none; } }
+
+.profile-copy { font-family: inherit; line-height: inherit; cursor: pointer; }
+.profile-copy-status { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.profile-copy.copy-feedback .profile-tooltip { visibility: visible; opacity: 1; }

@@ -183,3 +183,81 @@ function route() {
 }
 window.addEventListener('hashchange', route);
 route();
+
+// Position short profile hints inside the viewport, including wrapped mobile rows.
+document.querySelectorAll('.profile-link').forEach(link => {
+  const tip = link.querySelector('.profile-tooltip');
+  function positionTip() {
+    link.classList.remove('tooltip-dismissed');
+    tip.style.setProperty('--tooltip-shift', '0px');
+    const box = tip.getBoundingClientRect();
+    const shift = Math.max(12 - box.left, Math.min(0, innerWidth - 12 - box.right));
+    tip.style.setProperty('--tooltip-shift', `${shift}px`);
+  }
+  link.addEventListener('mouseenter', positionTip);
+  link.addEventListener('focus', positionTip);
+  link.addEventListener('keydown', event => {
+    if (event.key === 'Escape') link.classList.add('tooltip-dismissed');
+  });
+});
+
+// Shields performs the upstream lookup; no Scholar requests or credentials in the browser.
+// HTTP caching is requested for seven days; this is not a guaranteed upstream rate limit.
+async function loadScholarCitations() {
+  const tip = document.getElementById('profile-scholar');
+  const cacheKey = 'scholar-citations-k1tEDpQAAAAJ-v1';
+  const week = 7 * 24 * 60 * 60 * 1000;
+  let cached;
+  try { cached = JSON.parse(localStorage.getItem(cacheKey)); } catch { /* Storage may be disabled. */ }
+  if (cached && Number.isSafeInteger(cached.count) && cached.count >= 0 && Number.isFinite(cached.at)) {
+    tip.textContent = `${cached.count.toLocaleString('en-US')} citations`;
+    if (Date.now() - cached.at < week) return;
+  }
+  const params = new URLSearchParams({
+    url: 'https://scholar.google.com/citations?user=k1tEDpQAAAAJ',
+    query: "(//td[@class='gsc_rsb_std'])[1]",
+    label: 'citations', cacheSeconds: '604800',
+  });
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 8000);
+  try {
+    const response = await fetch(`https://img.shields.io/badge/dynamic/xml?${params}`, {
+      signal: controller.signal, credentials: 'omit',
+    });
+    if (!response.ok) return;
+    const svg = new DOMParser().parseFromString(await response.text(), 'image/svg+xml');
+    const title = svg.querySelector('title')?.textContent || '';
+    const match = /^citations:\s*([\d,]+)$/i.exec(title.trim());
+    if (!match) return; // Shields can return an error badge with HTTP 200.
+    const count = Number(match[1].replaceAll(',', ''));
+    if (!Number.isSafeInteger(count) || count < 0) return;
+    tip.textContent = `${count.toLocaleString('en-US')} citations`;
+    try { localStorage.setItem(cacheKey, JSON.stringify({count, at: Date.now()})); } catch { /* Optional cache. */ }
+  } catch { /* Keep the last known count or the useful static link description. */ }
+  finally { clearTimeout(timeout); }
+}
+// Start after the first paint rather than delaying navigation or waiting for hover.
+requestAnimationFrame(() => setTimeout(loadScholarCitations, 0));
+
+const wechatCopy = document.querySelector('.profile-copy');
+const copyStatus = document.querySelector('.profile-copy-status');
+let copyFeedbackTimer;
+wechatCopy.addEventListener('click', async () => {
+  const tip = wechatCopy.querySelector('.profile-tooltip');
+  clearTimeout(copyFeedbackTimer);
+  try {
+    await navigator.clipboard.writeText(wechatCopy.dataset.copy);
+    tip.textContent = 'Copied!';
+    copyStatus.textContent = 'WeChat ID copied: ' + wechatCopy.dataset.copy;
+  } catch {
+    tip.textContent = wechatCopy.dataset.copy;
+    copyStatus.textContent = 'Copy unavailable. WeChat ID: ' + wechatCopy.dataset.copy;
+  }
+  wechatCopy.classList.remove('tooltip-dismissed');
+  wechatCopy.classList.add('copy-feedback');
+  copyFeedbackTimer = setTimeout(() => {
+    tip.textContent = wechatCopy.dataset.copy;
+    wechatCopy.classList.remove('copy-feedback');
+    copyStatus.textContent = '';
+  }, 2000);
+});
