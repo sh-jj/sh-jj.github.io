@@ -65,7 +65,7 @@ function showPublicationView(button) {
     viewport.querySelectorAll('.pub-thumbnail').forEach(img => {
       const link = document.createElement('a');
       link.className = 'pub-image-link';
-      link.href = img.getAttribute('src');
+      link.href = img.dataset.original || img.getAttribute('src');
       link.target = '_blank';
       link.rel = 'noopener';
       link.setAttribute('aria-label', `View full-size image: ${img.alt} (opens in a new tab)`);
@@ -148,10 +148,13 @@ publicationButtons.forEach((button, index) => {
 });
 viewport.setAttribute('role', 'tabpanel');
 viewport.tabIndex = 0;
-showPublicationView(publicationButtons[0]);
 
 function route() {
   const hash = location.hash.slice(1) || 'home';
+  // Keep display images out of the DOM until the publications page is requested.
+  if (hash === 'publications' && !viewport.childElementCount) {
+    showPublicationView(publicationButtons[0]);
+  }
   // Topic deep links must restore the topic template before resolving the anchor.
   if (hash.startsWith('topic-') && ![...viewport.querySelectorAll('.pub-topic')].some(heading => heading.id === hash)) {
     const button = publicationButtons.find(button => button.dataset.topic === hash);
