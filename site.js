@@ -55,7 +55,7 @@ publicationButtons.forEach(button => {
 const viewport = document.getElementById('pubs-viewport');
 const sections = [...document.querySelectorAll('main > section')];
 const navigation = [...document.querySelectorAll('.nav-links a')];
-const homepageSections = new Set(['home', 'news', 'opportunities', 'research']);
+const homepageSections = new Set(['home', 'news', 'opportunities', 'research', 'photography-preview']);
 function showPublicationView(button) {
   viewport.replaceChildren(document.getElementById(button.dataset.template).content.cloneNode(true));
   // data-view is the styling contract: Selected = image cards; date/topic = text rows.

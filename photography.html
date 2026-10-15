@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Photographs by Jie-Jing Shao. Places, light, and moments from conference trips and travels.">
+  <title>Photography · Jie-Jing Shao</title>
+  <link rel="icon" href="img/favicon-clean-shaven.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="photography.css">
+  <script defer src="photography/data.js"></script>
+  <script defer src="photography.js"></script>
+</head>
+<body class="photo-page">
+  <a class="photo-skip" href="#photo-main">Skip to photographs</a>
+  <header class="photo-header">
+    <a class="photo-wordmark" href="index.html#home">Jie-Jing Shao <span>/ Photography</span></a>
+    <a class="photo-home" href="index.html#home">Back to academic homepage <span aria-hidden="true">↗</span></a>
+  </header>
+  <main id="photo-main" class="photo-main" tabindex="-1">
+    <div id="photo-content"></div>
+    <noscript><p>Please enable JavaScript to browse these photo collections. <a href="index.html">Return to homepage</a>.</p></noscript>
+  </main>
+  <footer class="photo-footer"><span>Photographs by Jie-Jing Shao <span lang="zh">邵杰晶</span></span><span>Places, light &amp; moments along the way.</span></footer>
+  <dialog class="photo-lightbox" aria-label="Photograph viewer" aria-describedby="viewer-caption">
+    <div class="viewer-bar"><span id="viewer-count" aria-live="polite"></span><button class="viewer-close" type="button" aria-label="Close photograph">Close <span aria-hidden="true">×</span></button></div>
+    <div class="viewer-stage"><button class="viewer-prev" type="button" aria-label="Previous photograph">←</button><img class="viewer-image" alt=""><button class="viewer-next" type="button" aria-label="Next photograph">→</button><span class="viewer-loading" role="status" hidden>Loading photograph…</span></div>
+    <div id="viewer-caption" class="viewer-caption" aria-live="polite"></div>
+  </dialog>
+</body>
+</html>
