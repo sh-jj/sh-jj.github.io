@@ -13,16 +13,18 @@
     if (photo.date.length === 4) return photo.date;
     return new Intl.DateTimeFormat('en', {day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC'}).format(new Date(`${photo.date}T00:00:00Z`));
   }
-  function photograph(photo, eager = false) {
+  function photograph(photo, eager = false, sizes = '(max-width: 680px) 100vw, 50vw', thumbnailOnly = false) {
     const img = el('img');
-    img.src = photo.thumb;
-    img.srcset = `${photo.thumb} ${photo.thumbWidth}w, ${photo.src} ${photo.largeWidth}w`;
-    img.sizes = '(max-width: 680px) 100vw, 50vw';
     img.width = photo.width;
     img.height = photo.height;
     img.alt = `${photo.title}${photo.localTitle ? ` / ${photo.localTitle}` : ''}`;
     img.loading = eager ? 'eager' : 'lazy';
     img.decoding = 'async';
+    // Set selection and loading hints before assigning any image URLs (Safari).
+    img.sizes = sizes;
+    if (eager) img.fetchPriority = 'high';
+    if (!thumbnailOnly) img.srcset = `${photo.thumb} ${photo.thumbWidth}w, ${photo.src} ${photo.largeWidth}w`;
+    img.src = photo.thumb;
     return img;
   }
   const preview = document.getElementById('photography-preview');
@@ -34,8 +36,7 @@
     chosen.forEach(album => {
       const link = el('a', 'photo-preview-card');
       link.href = albumURL(album);
-      const img = photograph(album.photos[0]);
-      img.sizes = '(max-width: 600px) 90vw, 300px';
+      const img = photograph(album.photos[0], false, '(max-width: 600px) 90vw, 300px', true);
       link.append(img, el('span', 'preview-place', album.place), el('span', 'preview-year', `${album.country} · ${album.year}`));
       grid.append(link);
     });
@@ -131,7 +132,7 @@
     const feature = el('figure', 'photo-feature');
     const button = el('button', 'feature-image'); button.type = 'button';
     button.setAttribute('aria-label', `Enlarge ${photo.title}`);
-    const img = photograph(photo, true); img.sizes = '(max-width: 1240px) 94vw, 1180px'; img.fetchPriority = 'high';
+    const img = photograph(photo, true, '(max-width: 1240px) 94vw, 1180px');
     button.append(img); button.addEventListener('click', () => openViewer(album, 0));
     const caption = el('figcaption');
     const link = el('a', '', `${photo.title} ↗`); link.href = albumURL(album);

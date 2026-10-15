@@ -239,8 +239,45 @@ async function loadScholarCitations() {
   } catch { /* Keep the last known count or the useful static link description. */ }
   finally { clearTimeout(timeout); }
 }
-// Start after the first paint rather than delaying navigation or waiting for hover.
-requestAnimationFrame(() => setTimeout(loadScholarCitations, 0));
+// This optional remote lookup is only useful when the Scholar hint is requested.
+const scholarLink = document.getElementById('profile-scholar').closest('a');
+let scholarRequested = false;
+function requestScholarCitations() {
+  if (scholarRequested) return;
+  scholarRequested = true;
+  loadScholarCitations();
+}
+scholarLink.addEventListener('pointerenter', requestScholarCitations, {once: true});
+scholarLink.addEventListener('focus', requestScholarCitations, {once: true});
+
+// Native image lazy loading can fetch far below the fold. Keep photography
+// scripts and image URLs absent until the visitor approaches the preview.
+const photoPreview = document.getElementById('photography-preview');
+function loadScript(src) {
+  return new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = src;
+    script.onload = resolve;
+    script.onerror = () => { script.remove(); reject(new Error(`Could not load ${src}`)); };
+    document.head.append(script);
+  });
+}
+if (photoPreview && 'IntersectionObserver' in window) {
+  let loadingPreview = false;
+  const observer = new IntersectionObserver(async entries => {
+    if (loadingPreview || !entries.some(entry => entry.isIntersecting)) return;
+    loadingPreview = true;
+    try {
+      if (!window.PHOTO_ALBUMS) await loadScript('photography/data.js');
+      await loadScript('photography.js');
+      observer.disconnect();
+    } catch {
+      // Keep the existing gallery link usable; retry on the next intersection.
+      loadingPreview = false;
+    }
+  }, {rootMargin: '200px 0px'});
+  observer.observe(photoPreview);
+}
 
 const wechatCopy = document.querySelector('.profile-copy');
 const copyStatus = document.querySelector('.profile-copy-status');
