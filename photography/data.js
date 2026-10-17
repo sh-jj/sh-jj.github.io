@@ -89,6 +89,172 @@ window.PHOTO_ALBUMS = [
     ]
   },
   {
+    "id": "2026-south-korea-seoul",
+    "year": "2026",
+    "place": "Seoul",
+    "localPlace": "首尔",
+    "country": "South Korea",
+    "description": "Palace gates, hillside homes, and everyday moments on the streets of Seoul.",
+    "photos": [
+      {
+        "id": "48c72c44cb8677d8",
+        "filename": "光化门广场.jpeg",
+        "title": "A Square Beneath the Mountains",
+        "localTitle": "山下的广场",
+        "date": "2026",
+        "width": 6192,
+        "height": 3483,
+        "thumbWidth": 800,
+        "largeWidth": 2400,
+        "thumb": "photography/images/48c72c44cb8677d8-thumb.webp",
+        "src": "photography/images/48c72c44cb8677d8-large.webp"
+      },
+      {
+        "id": "089d9a2d1e7d41b4",
+        "filename": "光化门正面.jpeg",
+        "title": "Before Gwanghwamun",
+        "localTitle": "光化门前",
+        "date": "2026",
+        "width": 6192,
+        "height": 3483,
+        "thumbWidth": 800,
+        "largeWidth": 2400,
+        "thumb": "photography/images/089d9a2d1e7d41b4-thumb.webp",
+        "src": "photography/images/089d9a2d1e7d41b4-large.webp"
+      },
+      {
+        "id": "e504a393f1cd662f",
+        "filename": "宫门-电影感.jpeg",
+        "title": "Palace Eaves, Quiet Skies",
+        "localTitle": "宫阙静影",
+        "date": "2026",
+        "width": 6192,
+        "height": 2589,
+        "thumbWidth": 800,
+        "largeWidth": 2400,
+        "thumb": "photography/images/e504a393f1cd662f-thumb.webp",
+        "src": "photography/images/e504a393f1cd662f-large.webp"
+      },
+      {
+        "id": "a2df17070cf6b278",
+        "filename": "小巷.jpeg",
+        "title": "Signs of Everyday Life",
+        "localTitle": "巷里烟火",
+        "date": "2026",
+        "width": 6192,
+        "height": 3576,
+        "thumbWidth": 800,
+        "largeWidth": 2400,
+        "thumb": "photography/images/a2df17070cf6b278-thumb.webp",
+        "src": "photography/images/a2df17070cf6b278-large.webp"
+      },
+      {
+        "id": "56dc2b9850c4032a",
+        "filename": "日常居民楼.jpeg",
+        "title": "Homes Above the Trees",
+        "localTitle": "绿荫之上",
+        "date": "2026",
+        "width": 5745,
+        "height": 3336,
+        "thumbWidth": 800,
+        "largeWidth": 2400,
+        "thumb": "photography/images/56dc2b9850c4032a-thumb.webp",
+        "src": "photography/images/56dc2b9850c4032a-large.webp"
+      },
+      {
+        "id": "a7460c65b1be1c17",
+        "filename": "李舜臣将军像.jpeg",
+        "title": "The Admiral Keeps Watch",
+        "localTitle": "将军守望",
+        "date": "2026",
+        "width": 6192,
+        "height": 3483,
+        "thumbWidth": 800,
+        "largeWidth": 2400,
+        "thumb": "photography/images/a7460c65b1be1c17-thumb.webp",
+        "src": "photography/images/a7460c65b1be1c17-large.webp"
+      },
+      {
+        "id": "b9f940ef23e349f7",
+        "filename": "街头建筑.jpeg",
+        "title": "Reflections Along the Avenue",
+        "localTitle": "长街映城",
+        "date": "2026",
+        "width": 5937,
+        "height": 3752,
+        "thumbWidth": 800,
+        "largeWidth": 2400,
+        "thumb": "photography/images/b9f940ef23e349f7-thumb.webp",
+        "src": "photography/images/b9f940ef23e349f7-large.webp"
+      },
+      {
+        "id": "dad7f96fefd11fee",
+        "filename": "街角-2.jpeg",
+        "title": "Where the Arrows Lead",
+        "localTitle": "沿着箭头走",
+        "date": "2026",
+        "width": 4128,
+        "height": 5260,
+        "thumbWidth": 628,
+        "largeWidth": 1883,
+        "thumb": "photography/images/dad7f96fefd11fee-thumb.webp",
+        "src": "photography/images/dad7f96fefd11fee-large.webp"
+      },
+      {
+        "id": "ba5d865eb9f387ec",
+        "filename": "街角骑手.jpeg",
+        "title": "Around the Corner",
+        "localTitle": "转角之间",
+        "date": "2026",
+        "width": 4128,
+        "height": 5160,
+        "thumbWidth": 640,
+        "largeWidth": 1920,
+        "thumb": "photography/images/ba5d865eb9f387ec-thumb.webp",
+        "src": "photography/images/ba5d865eb9f387ec-large.webp"
+      },
+      {
+        "id": "9b31184d52eca19b",
+        "filename": "远眺南山塔.jpeg",
+        "title": "Namsan Beyond the Rooftops",
+        "localTitle": "屋檐外的南山",
+        "date": "2026",
+        "width": 4128,
+        "height": 4469,
+        "thumbWidth": 739,
+        "largeWidth": 2217,
+        "thumb": "photography/images/9b31184d52eca19b-thumb.webp",
+        "src": "photography/images/9b31184d52eca19b-large.webp"
+      },
+      {
+        "id": "e2d2a44ad81d4072",
+        "filename": "首尔街头.jpeg",
+        "title": "An Evening at the Crossing",
+        "localTitle": "街口入暮",
+        "date": "2026",
+        "width": 6192,
+        "height": 3771,
+        "thumbWidth": 800,
+        "largeWidth": 2400,
+        "thumb": "photography/images/e2d2a44ad81d4072-thumb.webp",
+        "src": "photography/images/e2d2a44ad81d4072-large.webp"
+      },
+      {
+        "id": "41143d653cedc09a",
+        "filename": "首尔骑手-横屏.jpeg",
+        "title": "A Rider Passing Through",
+        "localTitle": "骑过日常",
+        "date": "2026",
+        "width": 4128,
+        "height": 2751,
+        "thumbWidth": 800,
+        "largeWidth": 2400,
+        "thumb": "photography/images/41143d653cedc09a-thumb.webp",
+        "src": "photography/images/41143d653cedc09a-large.webp"
+      }
+    ]
+  },
+  {
     "id": "2025-china-nanjing",
     "year": "2025",
     "place": "Nanjing",
@@ -97,17 +263,17 @@ window.PHOTO_ALBUMS = [
     "description": "A city in changing light, from the Yangtze bridges to a lotus after rain.",
     "photos": [
       {
-        "id": "3ccc00ccad3a15db",
-        "filename": "南京-常府街晚霞-堆栈至9050--20250615.jpg",
-        "title": "When the City Turns Gold",
-        "localTitle": "金陵晚霞",
-        "date": "2025-06-15",
+        "id": "d098a9d9dc57f0e6",
+        "filename": "南京-长江大桥-蓝调-20250501.jpg",
+        "title": "A Ribbon of Light",
+        "localTitle": "一江灯火",
+        "date": "2025-05-01",
         "width": 6192,
         "height": 4128,
         "thumbWidth": 800,
         "largeWidth": 2400,
-        "thumb": "photography/images/3ccc00ccad3a15db-thumb.webp",
-        "src": "photography/images/3ccc00ccad3a15db-large.webp"
+        "thumb": "photography/images/d098a9d9dc57f0e6-thumb.webp",
+        "src": "photography/images/d098a9d9dc57f0e6-large.webp"
       },
       {
         "id": "399097bc44b905a7",
@@ -149,6 +315,19 @@ window.PHOTO_ALBUMS = [
         "src": "photography/images/827d5450541e9497-large.webp"
       },
       {
+        "id": "3ccc00ccad3a15db",
+        "filename": "南京-常府街晚霞-堆栈至9050--20250615.jpg",
+        "title": "When the City Turns Gold",
+        "localTitle": "金陵晚霞",
+        "date": "2025-06-15",
+        "width": 6192,
+        "height": 4128,
+        "thumbWidth": 800,
+        "largeWidth": 2400,
+        "thumb": "photography/images/3ccc00ccad3a15db-thumb.webp",
+        "src": "photography/images/3ccc00ccad3a15db-large.webp"
+      },
+      {
         "id": "f596af887d52d0a9",
         "filename": "南京-新街口-高铁-20250724.jpg",
         "title": "The Blue Hour Express",
@@ -186,19 +365,6 @@ window.PHOTO_ALBUMS = [
         "largeWidth": 2400,
         "thumb": "photography/images/562cf165c19b905f-thumb.webp",
         "src": "photography/images/562cf165c19b905f-large.webp"
-      },
-      {
-        "id": "d098a9d9dc57f0e6",
-        "filename": "南京-长江大桥-蓝调-20250501.jpg",
-        "title": "A Ribbon of Light",
-        "localTitle": "一江灯火",
-        "date": "2025-05-01",
-        "width": 6192,
-        "height": 4128,
-        "thumbWidth": 800,
-        "largeWidth": 2400,
-        "thumb": "photography/images/d098a9d9dc57f0e6-thumb.webp",
-        "src": "photography/images/d098a9d9dc57f0e6-large.webp"
       },
       {
         "id": "adc133a2705a0176",
