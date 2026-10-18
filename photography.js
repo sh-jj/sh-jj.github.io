@@ -7,7 +7,7 @@
     if (text) node.textContent = text;
     return node;
   }
-  function albumURL(album) { return `photography.html?album=${encodeURIComponent(album.id)}`; }
+  function albumURL(album) { return `photography.html?album=${encodeURIComponent(album.id)}&v=20261018-collections`; }
   function locationLabel(album) { return `${album.place}, ${album.country} · ${album.year}`; }
   function dateLabel(photo) {
     if (photo.date.length === 4) return photo.date;
@@ -168,7 +168,7 @@
       title.lang = 'zh';
       viewerCaption.append(title);
     }
-    viewerCaption.append(el('span', 'viewer-meta', `${viewingAlbum.place}, ${viewingAlbum.country} · ${dateLabel(photo)}`));
+    viewerCaption.append(el('span', 'viewer-meta', `${photo.place || viewingAlbum.place}, ${photo.country || viewingAlbum.country} · ${dateLabel(photo)}`));
     document.getElementById('viewer-count').textContent = `${viewingIndex + 1} / ${viewingAlbum.photos.length}`;
     previous.disabled = viewingIndex === 0;
     next.disabled = viewingIndex === viewingAlbum.photos.length - 1;
@@ -206,78 +206,122 @@
   }, {passive: true});
 
   function kicker(text) { return el('p', 'photo-kicker', text); }
-  function albumCard(album) {
-    const link = el('a', 'album-card');
-    link.href = albumURL(album);
-    const frame = el('div', 'album-cover');
-    frame.append(photograph(album.photos[0]), el('span', 'album-count', `${album.photos.length} ${album.photos.length === 1 ? 'photograph' : 'photographs'}`));
-    const caption = el('div', 'album-caption');
-    const heading = el('h3', '', album.place);
-    const local = el('span', 'album-local', album.localPlace); local.lang = 'zh';
-    heading.append(local);
-    caption.append(heading, el('span', 'album-year', album.year));
-    link.append(frame, caption, el('p', 'album-country', album.country));
-    return link;
+  // Justified rows keep native image ratios and align both edges of the gallery.
+  function gallery(photos, collectionCovers = false) {
+    const grid = el('div', 'photo-wall');
+    const view = {photos};
+    const tiles = photos.map((photo, index) => {
+      const button = el(collectionCovers ? 'a' : 'button', collectionCovers ? 'wall-photo collection-cover' : 'wall-photo');
+      if (collectionCovers) {
+        button.href = albumURL(photo.album);
+        button.setAttribute('aria-label', `Explore ${photo.place} collection · ${photo.album.photos.length} ${photo.album.photos.length === 1 ? 'photograph' : 'photographs'}`);
+      } else {
+        button.type = 'button';
+        button.setAttribute('aria-label', `Enlarge ${photo.title}`);
+      }
+      button.append(photograph(photo, index < 4, '(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 33vw'));
+      const caption = el('span', 'wall-caption');
+      if (collectionCovers) {
+        const title = el('strong', '', photo.place);
+        const local = el('span', 'collection-local', photo.album.localPlace); local.lang = 'zh';
+        title.append(local);
+        caption.append(title, el('span', '', `${photo.year} · ${photo.album.photos.length} ${photo.album.photos.length === 1 ? 'photograph' : 'photographs'}`));
+      } else {
+        caption.append(el('strong', '', photo.title), el('span', '', `${photo.place} · ${photo.year}`));
+      }
+      button.append(caption);
+      if (!collectionCovers) button.addEventListener('click', () => openViewer(view, index));
+      return button;
+    });
+    grid.append(...tiles);
+    let lastWidth = 0;
+    function layout() {
+      const width = grid.clientWidth;
+      if (!width || width === lastWidth) return;
+      lastWidth = width;
+      const gap = parseFloat(getComputedStyle(grid).columnGap);
+      const target = width < 600 ? 190 : 220;
+      let start = 0;
+      while (start < photos.length) {
+        let end = start + 1;
+        let sum = photos[start].width / photos[start].height;
+        while (end < photos.length) {
+          const nextSum = sum + photos[end].width / photos[end].height;
+          const height = (width - gap * (end - start - 1)) / sum;
+          const nextHeight = (width - gap * (end - start)) / nextSum;
+          if (Math.abs(height - target) <= Math.abs(nextHeight - target)) break;
+          sum = nextSum; end++;
+        }
+        const fitted = (width - 1 - gap * (end - start - 1)) / sum;
+        const height = end === photos.length ? Math.min(fitted, target) : fitted;
+        for (let i = start; i < end; i++) {
+          tiles[i].style.width = `${height * photos[i].width / photos[i].height}px`;
+          tiles[i].style.height = `${height}px`;
+        }
+        start = end;
+      }
+    }
+    const observer = new ResizeObserver(layout);
+    observer.observe(grid);
+    // Replacing a filtered gallery must also release its resize observer.
+    grid.dispose = () => observer.disconnect();
+    return grid;
+  }
+  function albumPhotos(album) {
+    return album.photos.map(photo => ({...photo, place: album.place, country: album.country, year: album.year, albumId: album.id}));
   }
   function renderCollections() {
     document.title = 'Photography · Jie-Jing Shao';
     const intro = el('div', 'photo-intro');
     const left = el('div');
     left.append(kicker('JIE-JING SHAO / PHOTOGRAPHY'), el('h1', '', 'Along the way.'));
-    const right = el('div', 'photo-intro-note');
-    right.append(el('p', '', 'A few things I stopped to look at.'), el('p', '', 'Photographs from conference trips, travels, and the places in between.'));
-    intro.append(left, right); content.append(intro);
-    if (!albums.length) { content.append(el('p', 'photo-empty', 'New photographs will appear here soon.')); return; }
-    const album = albums[0], photo = album.photos[0];
-    const feature = el('figure', 'photo-feature');
-    const button = el('button', 'feature-image'); button.type = 'button';
-    button.setAttribute('aria-label', `Enlarge ${photo.title}`);
-    const img = photograph(photo, true, '(max-width: 1240px) 94vw, 1180px');
-    button.append(img); button.addEventListener('click', () => openViewer(album, 0));
-    const caption = el('figcaption');
-    const link = el('a', '', `${photo.title} ↗`); link.href = albumURL(album);
-    caption.append(link, el('span', '', locationLabel(album)));
-    feature.append(button, caption); content.append(feature);
+    intro.append(left, el('p', 'photo-intro-note', 'Places, light, and moments from my travels.'));
+    content.append(intro);
+    const photos = albums.map(album => ({...album.photos[0], place: album.place, year: album.year, album}));
     const collections = el('section', 'photo-collections'); collections.id = 'collections';
     const heading = el('div', 'collections-heading');
-    heading.append(el('h2', '', 'Places & moments'), el('span', '', `${albums.length} collections · ${albums.reduce((n, a) => n + a.photos.length, 0)} photographs`));
-    const filters = el('div', 'photo-filters'); filters.setAttribute('aria-label', 'Filter collections by year');
-    const grid = el('div', 'album-grid');
-    const status = el('p', 'photo-filter-status'); status.setAttribute('role', 'status');
-    ['All years', ...new Set(albums.map(a => a.year))].forEach((year, i) => {
-      const button = el('button', '', year); button.type = 'button'; button.setAttribute('aria-pressed', String(i === 0));
-      button.addEventListener('click', () => {
-        filters.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b === button)));
-        const selected = albums.filter(a => i === 0 || a.year === year);
-        grid.replaceChildren(...selected.map(albumCard));
-        status.textContent = `${selected.length} ${selected.length === 1 ? 'collection' : 'collections'} shown`;
-      }); filters.append(button);
-    });
-    grid.append(...albums.map(albumCard));
-    collections.append(heading, filters, status, grid); content.append(collections);
+    const count = el('span');
+    function countLabel(selected) {
+      return `${selected.length} ${selected.length === 1 ? 'collection' : 'collections'} · ${selected.reduce((total, photo) => total + photo.album.photos.length, 0)} photographs`;
+    }
+    count.textContent = countLabel(photos);
+    count.setAttribute('role', 'status');
+    heading.append(el('h2', '', 'Places & moments'), count);
+    const controls = el('div', 'gallery-controls');
+    let year = '';
+    let wall = gallery(photos, true);
+    function update() {
+      const selected = photos.filter(photo => !year || photo.year === year);
+      wall.dispose();
+      const nextWall = gallery(selected, true);
+      wall.replaceWith(nextWall); wall = nextWall;
+      count.textContent = countLabel(selected);
+      if (!selected.length) wall.append(el('p', 'photo-empty', 'No collections for this year.'));
+    }
+    function filterRow(label, options, select) {
+      const row = el('div', 'photo-filters'); row.setAttribute('role', 'group'); row.setAttribute('aria-label', label);
+      row.append(el('span', 'filter-label', label));
+      options.forEach(([value, text], index) => {
+        const button = el('button', '', text); button.type = 'button'; button.setAttribute('aria-pressed', String(index === 0));
+        button.addEventListener('click', () => {
+          row.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b === button)));
+          select(value); update();
+        });
+        row.append(button);
+      });
+      controls.append(row);
+    }
+    filterRow('Year', [['', 'All years'], ...[...new Set(albums.map(a => a.year))].map(y => [y,y])], value => { year = value; });
+    collections.append(heading, controls, wall); content.append(collections);
   }
   function renderAlbum(album) {
     document.title = `${album.place} ${album.year} · Photography · Jie-Jing Shao`;
     const back = el('a', 'album-back', '← All collections'); back.href = 'photography.html#collections';
     const intro = el('div', 'album-intro');
     intro.append(kicker(`${album.country} / ${album.year}`), el('h1', '', album.place));
-    const local = el('p', 'album-local-heading', album.localPlace); local.lang = 'zh'; intro.append(local);
     if (album.description) intro.append(el('p', 'album-description', album.description));
-    intro.append(el('p', 'album-total', `${album.photos.length} ${album.photos.length === 1 ? 'photograph' : 'photographs'}`));
-    content.append(back, intro);
-    const grid = el('div', 'photograph-grid');
-    album.photos.forEach((photo, index) => {
-      const figure = el('figure', 'photograph');
-      const button = el('button', 'photograph-button'); button.type = 'button'; button.setAttribute('aria-label', `Enlarge ${photo.title}`);
-      button.append(photograph(photo, index < 2)); button.addEventListener('click', () => openViewer(album, index));
-      const caption = el('figcaption');
-      const heading = el('h2', '', photo.title);
-      if (photo.localTitle) { const local = el('span', 'photograph-local', photo.localTitle); local.lang = 'zh'; heading.append(local); }
-      const date = el('time', '', dateLabel(photo)); date.dateTime = photo.date;
-      caption.append(heading, date); figure.append(button, caption); grid.append(figure);
-    });
-    content.append(grid);
-    const end = el('a', 'album-end', 'Explore all collections →'); end.href = 'photography.html#collections'; content.append(end);
+    intro.append(el('p', 'album-total', `${album.photos.length} photographs`));
+    content.append(back, intro, gallery(albumPhotos(album)));
   }
   const requested = new URLSearchParams(location.search).get('album');
   const selected = albums.find(a => a.id === requested);
