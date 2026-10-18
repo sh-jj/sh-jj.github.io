@@ -33,13 +33,113 @@
       .map(id => albums.find(a => a.id === id)).filter(Boolean);
     for (const album of albums) if (chosen.length < 3 && !chosen.includes(album)) chosen.push(album);
     const grid = preview.querySelector('.photo-preview-grid');
+    const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
+    const connection = navigator.connection;
+    const frames = [];
+    const simulations = new WeakMap();
+    const simulatedAlbums = new Set(['2026-china-sayram-lake', '2025-china-nanjing', '2025-china-hongkong']);
+    let motionModule;
+    function loadMotionModule() {
+      if (!motionModule) motionModule = new Promise((resolve, reject) => {
+        const script = el('script');
+        script.src = 'photography-motion.js?v=20261018-fixed-frame';
+        script.onload = resolve;
+        script.onerror = reject;
+        document.head.append(script);
+      });
+      return motionModule;
+    }
+    async function prepareMotion(frame) {
+      if (simulations.has(frame) || frame.dataset.preparing || frame.dataset.failed === 'true') return;
+      frame.dataset.preparing = 'true';
+      try {
+        const img = frame.querySelector('img');
+        await img.decode();
+        await loadMotionModule();
+        const renderer = window.createPhotoMotion(frame, img, frame.dataset.album, () => {
+          frame.dataset.failed = 'true';
+          updateMotion();
+        });
+        if (renderer) simulations.set(frame, renderer);
+        else frame.dataset.failed = 'true';
+      } catch { frame.dataset.failed = 'true'; }
+      updateMotion();
+    }
+    function updateMotion() {
+      const reduced = motionPreference.matches || connection?.saveData;
+      frames.forEach(frame => {
+        const video = frame.querySelector('video');
+        const running = !reduced && !document.hidden
+          && frame.dataset.visible === 'true' && frame.dataset.failed !== 'true';
+        if (!video) {
+          const renderer = simulations.get(frame);
+          if (renderer) renderer.setRunning(running, !!reduced);
+          else if (running && frame.dataset.motion === 'true') prepareMotion(frame);
+          return;
+        }
+        frame.dataset.running = String(running);
+        if (reduced) frame.classList.remove('has-video');
+        if (!running) { video.pause(); return; }
+        // No video URL is assigned until this card is visible and motion is allowed.
+        if (!video.hasAttribute('src')) video.src = video.dataset.src;
+        if (video.paused && frame.dataset.pending !== 'true') {
+          frame.dataset.pending = 'true';
+          video.play().then(() => {
+            if (frame.dataset.running !== 'true') video.pause();
+          }).catch(() => {
+            // Keep the original still if the browser blocks autoplay.
+            frame.dataset.failed = 'true';
+            frame.classList.remove('has-video');
+            updateMotion();
+          }).finally(() => { frame.dataset.pending = 'false'; });
+        }
+      });
+    }
+    const observer = 'IntersectionObserver' in window ? new IntersectionObserver(entries => {
+      entries.forEach(entry => { entry.target.dataset.visible = String(entry.isIntersecting); });
+      updateMotion();
+    }) : null;
     chosen.forEach(album => {
       const link = el('a', 'photo-preview-card');
       link.href = albumURL(album);
+      // The original photograph remains visible until an actual motion clip plays.
+      const frame = el('span', 'photo-preview-frame');
+      frame.dataset.album = album.id;
+      frame.dataset.motion = String(!!album.previewVideo || simulatedAlbums.has(album.id));
       const img = photograph(album.photos[0], false, '(max-width: 600px) 90vw, 300px', true);
-      link.append(img, el('span', 'preview-place', album.place), el('span', 'preview-year', `${album.country} · ${album.year}`));
+      frame.append(img);
+      if (album.previewVideo) {
+        const video = el('video');
+        video.muted = true;
+        video.defaultMuted = true;
+        video.loop = true;
+        video.playsInline = true;
+        video.preload = 'none';
+        video.disablePictureInPicture = true;
+        video.setAttribute('aria-hidden', 'true');
+        video.tabIndex = -1;
+        video.dataset.src = album.previewVideo;
+        video.addEventListener('playing', () => {
+          if (frame.dataset.running === 'true') frame.classList.add('has-video');
+          else video.pause();
+        });
+        video.addEventListener('error', () => {
+          frame.dataset.failed = 'true';
+          frame.classList.remove('has-video');
+          updateMotion();
+        });
+        frame.append(video);
+      }
+      link.append(frame, el('span', 'preview-place', album.place), el('span', 'preview-year', `${album.country} · ${album.year}`));
       grid.append(link);
+      frames.push(frame);
+      if (observer) observer.observe(frame);
+      else frame.dataset.visible = 'true';
     });
+    document.addEventListener('visibilitychange', updateMotion);
+    motionPreference.addEventListener('change', updateMotion);
+    connection?.addEventListener('change', updateMotion);
+    updateMotion();
     if (!albums.length) preview.remove();
     return;
   }

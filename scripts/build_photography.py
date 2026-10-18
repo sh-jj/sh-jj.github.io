@@ -44,6 +44,8 @@ def build(source, destination, catalog):
                      localPlace=meta.get('localPlace', ''),
                      country=meta.get('country', country_slug.replace('-', ' ').title()),
                      description=meta.get('description', ''), photos=[])
+        if meta.get('previewVideo'):
+            album['previewVideo'] = meta['previewVideo']
         for path in sorted(folder.iterdir()):
             if not path.is_file() or path.name.startswith('.') or path.suffix.lower() not in EXTENSIONS:
                 continue

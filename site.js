@@ -269,7 +269,7 @@ if (photoPreview && 'IntersectionObserver' in window) {
     loadingPreview = true;
     try {
       if (!window.PHOTO_ALBUMS) await loadScript('photography/data.js');
-      await loadScript('photography.js');
+      await loadScript('photography.js?v=20261018-fixed-frame');
       observer.disconnect();
     } catch {
       // Keep the existing gallery link usable; retry on the next intersection.

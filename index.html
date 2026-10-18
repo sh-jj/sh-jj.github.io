@@ -1467,9 +1467,16 @@ main > section:not([hidden]) { animation: page-in 180ms ease-out; }
 .photo-preview-heading h2 { margin-bottom: 8px; }
 .photo-preview-heading > a { font-size: 13px; }
 .photo-preview-intro { font-size: 14px; color: var(--muted); margin: 0 0 22px; }
+.photo-preview-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
 .photo-preview-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
 .photo-preview-card { color: var(--text); }
-.photo-preview-card img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; display: block; margin-bottom: 10px; border-radius: 3px; }
+.photo-preview-frame { position: relative; display: block; overflow: hidden; isolation: isolate; aspect-ratio: 3 / 2; margin-bottom: 10px; border-radius: 3px; background: var(--soft); }
+.photo-preview-frame img, .photo-preview-frame video, .photo-preview-canvas { width: 100%; height: 100%; object-fit: cover; display: block; }
+.photo-preview-frame video, .photo-preview-canvas { position: absolute; inset: 0; opacity: 0; pointer-events: none; transition: opacity .45s ease; }
+.photo-preview-frame.has-video video, .photo-preview-frame.has-motion .photo-preview-canvas { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+.photo-preview-frame video, .photo-preview-canvas { display: none; transition: none; }
+}
 .preview-place { font-size: 14px; display: block; }
 .preview-year { display: block; font-size: 11px; color: var(--muted); }
 @media (max-width: 680px) {
@@ -2192,7 +2199,7 @@ main > section:not([hidden]) { animation: page-in 180ms ease-out; }
       </footer>
     </main>
 
-    <script defer src="site.js"></script>
+    <script defer src="site.js?v=20261018-fixed-frame"></script>
     <script defer src="research.js"></script>
   </body>
 </html>
